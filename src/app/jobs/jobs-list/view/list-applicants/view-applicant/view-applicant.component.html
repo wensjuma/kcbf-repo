@@ -1,0 +1,100 @@
+<form action="">
+    <div class="card-form">
+        <b> Applicant Details
+            <button class="pull-right" mat-raised-button (click)="back()"> <span class="fa fa-arrow-left"></span>
+                Back</button>
+        </b>
+        
+        <div class="row">
+            <div *ngIf="applicant_details" class="section col-6">
+                <span *ngIf="applicant_details.accepted"  class="badge-success badge"><i class="fa fa-check-circle"></i> Application accepted</span>
+                <h4><small class="text-success">{{applicant_details.first_name}} {{applicant_details.middle_name}}
+                        {{applicant_details.surname}}</small></h4>
+                <small><b>Email </b>{{applicant_details.email_address}}</small>
+                <hr>
+                <small><b>Id number </b> {{applicant_details.id_number}}</small>
+                <hr>
+                <small><b>Passport number </b> {{applicant_details.passport_number}}</small>
+                <hr>
+                <small><b>Expected salary</b> {{applicant_details.expected_salary}}</small>
+                <hr>
+                <small><b>Postal address</b> {{applicant_details.postal_address}}</small>
+                <hr>
+                <small><b>Date of application</b> {{applicant_details.applied_on | date: 'dd MMM yyyy'}}</small>
+                <hr>
+                <small><b>Residence</b> {{applicant_details.applicant_residence}}</small>
+                <hr>
+                <small><b>Gender</b> {{applicant_details.gender}}</small>
+                <hr>
+                <br>
+                <br>
+                <button *ngIf="!applicant_details.accepted" (click)="acceptApplication(applicant_details)"
+        class="btn-success btn-block btn btn-sm">Accept</button>
+                </div>
+            <div class="col-6">
+                <br>
+                <h5><small>WORK EXPERIENCE</small></h5>
+                
+                <form class="edu-details">
+                    <section *ngFor="let work of works" class="card-education">
+                        <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
+                        <small><b>{{work.institution_name}} </b> </small><br>
+                        <small> {{work.joined_on | date: 'dd/MM/yyyy'}} -
+                            {{work.left_on | date: 'dd/MM/yyyy'}}</small> <br>
+                        <br>
+                        <small>{{work.description}} </small>
+                        <hr>
+                        <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
+                    </section>
+                </form>
+                <hr>
+                <h5><small>EDUCATION DETAILS</small></h5>
+                <form class="edu-details">
+                    
+                    <section *ngFor="let education of education_history" class="card-education">
+                        <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
+                        <small><b>{{education.institution_name}} </b> </small><br>
+                        <small> {{education.end_date | date: 'MM/yyyy'}} -
+                            {{education.end_date  | date: 'MM/yyyy'}}</small> <br>
+                        <br>
+                        <small>{{education.description}} </small>
+                        <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
+                    </section>
+                </form>
+                <hr>
+                <h5><small>DOCUMENTS</small></h5>
+                <form class="edu-details"> 
+                    <div  *ngFor="let upload of uploaded_file" class="card col-6">
+                        <img width="80px" src="assets/document.png" alt="">
+                        <small>
+                            <i class="fab fa-pdf"></i> {{upload.file.file_name}}
+                        </small>
+                        <hr>
+                       <div class="row">
+                           <div class="col-md-6">
+                            <button title="Open file" (click)="openFile(upload)" class="btn btn-info btn-block btn-sm pull-left"><i class="fa fa-folder-open-o "></i> </button>
+                           </div>
+                           <div class="col-md-6">
+                            <button title="Download file" (click)="downloadFile(upload)" class="btn btn-block btn-success btn-sm pull-right"><i class="fa fa-download"></i> </button>
+                           </div>
+                       </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+</form>
+
+<form class="job-experience">
+
+
+    <div class="col-12">
+        <br>
+       
+        <br> <br>
+    </div>
+</form>
+

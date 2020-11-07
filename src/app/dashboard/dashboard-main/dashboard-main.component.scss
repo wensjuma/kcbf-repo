@@ -1,0 +1,31 @@
+.card-body{
+    border-radius: 0 1px 2px #63c0;
+}
+.card-top{
+    text-align: center;
+    padding: 7px;
+}
+.pull-left{
+    background-color: #63c000;
+}
+.mto{
+    input{
+        width: 120px !important;
+        // margin-top: 40px;
+    } 
+}
+.input-group-text{
+    height: 38px !important;
+    // margin-top: 40px;
+}
+input{
+    width: 450px !important;
+}
+.containers{
+    margin: 15px !important;
+}
+
+.dashboard{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

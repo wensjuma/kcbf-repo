@@ -1,0 +1,18 @@
+<div class="row">
+
+    <div class="col-md-12 right-partition">
+        <div class="text-top">
+            <h3> <b>Jobs</b></h3>
+            <!-- <small>create and remove interviewee</small> -->
+            <!-- <button (click)="openIntervieweesDialog($event, 'create')"
+                mat-raised-button class="btn-default pull-right
+                create-panelist"><span class="fa fa-plus"></span> Add
+                Interviewee</button> -->
+                      
+        </div>
+        <div class="mat-elevation-z1">
+            <ng2-smart-table [settings]="settings" [source]="jobs"
+                (custom)="onCustomAction($event)"></ng2-smart-table>
+        </div>
+    </div>
+</div>

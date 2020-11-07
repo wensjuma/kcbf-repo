@@ -1,0 +1,23 @@
+
+<div class="row">
+
+        <div class="col-md-12 right-partition">
+
+            <div class="text-top">
+                <h3> <b>List of Panelist</b></h3>
+                <small>create and remove panelists</small>
+                <button (click)= "openPanelistsDialog($event, 'create')" mat-raised-button class="default pull-right create-panelist"><span class="fa fa-plus"></span> Add
+                    panelist</button>
+                <br> <br>
+                <!-- <router-outlet></router-outlet> -->
+            </div>
+            <div class="mat-elevation-z8">
+                <ng2-smart-table  [settings]="settings" [source]="data" (custom)="onCustomAction($event)"></ng2-smart-table>
+            </div>
+
+
+            <!-- Copyright 2020 Google LLC. All Rights Reserved.
+                  Use of this source code is governed by an MIT-style license that
+                  can be found in the LICENSE file at http://angular.io/license -->
+        </div>
+</div>

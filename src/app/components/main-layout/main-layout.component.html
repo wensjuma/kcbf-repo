@@ -1,0 +1,382 @@
+<div class="body">
+  <!-- <div class="body"> -->
+
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12 -3 col-lg-3 col-xl-3">
+  
+        <section class="left-partition">
+          <img src="assets/found-logo.png" class="logo-img img-responsive"
+            width="320px" height="50px" alt="">
+          <br><br>
+          <div class="side-menu-container">
+            <ul class="side-menu">
+              <li>
+                <a routerLink="/main/dashboard" routerLinkActive="active">
+                  <img width="25px" src="assets/dashboard.png" alt=""> Dashboard
+                  <span
+                    class="pull-right">
+                    <svg
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      class="bi bi-chevron-right chev-form pull-right"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                        6a.5.5
+                        0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8
+                        4.646
+                        2.354a.5.5
+                        0
+                        0 1 0-.708z"
+                        />
+                      </svg>
+                    </span>
+                  </a>
+                </li>
+                <li (click)="activateChild()"><a
+                    routerLink="/main/interviews/list/interviews"
+                    routerLinkActive="active">
+                    <img width="25px" src="assets/interview.png" alt="">
+                    Interviews
+                    <span
+                      class="pull-right">
+                      <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-chevron-right chev-form pull-right"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          fill-rule="evenodd"
+                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                          6a.5.5
+                          0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8
+                          4.646
+                          2.354a.5.5
+                          0
+                          0 1 0-.708z"
+                          />
+                        </svg>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="interview_child" *ngIf='parent_active'>
+                    <a routerLink="/main/myinterviews"
+                      routerLinkActive="active">
+                      <img width="25px" src="assets/interviewee.png" alt="">
+                      My Interviews
+                      <span
+                        class="pull-right">
+                        <svg
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 16 16"
+                          class="bi bi-chevron-right chev-form pull-right"
+                          fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                            6a.5.5
+                            0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8
+                            4.646
+                            2.354a.5.5
+                            0
+                            0 1 0-.708z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </li>    
+                  <li>
+                    <a routerLink="/main/jobs"
+                      routerLinkActive="active">
+                      <img width="25px" src="assets/interviewee.png" alt="">
+                     Jobs
+                      <span
+                        class="pull-right">
+                        <svg
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 16 16"
+                          class="bi bi-chevron-right chev-form pull-right"
+                          fill="currentColor"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                            6a.5.5
+                            0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8
+                            4.646
+                            2.354a.5.5
+                            0
+                            0 1 0-.708z"
+                            />
+                          </svg>
+                        </span>
+                      </a>
+                    </li>    
+                      <li (click)="activateUserChild()">
+                        <a routerLink="users" routerLinkActive="active">
+                          <img width="25px" src="assets/panelists.png" alt="">
+                          Users
+                          <span
+                            class="pull-right">
+                            <svg
+                              width="1em"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              class="bi bi-chevron-right chev-form pull-right"
+                              fill="currentColor"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                                6a.5.5
+                                0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8
+                                4.646
+                                2.354a.5.5
+                                0
+                                0 1 0-.708z"
+                                />
+                              </svg>
+                            </span>
+                          </a>
+                        </li>
+                        <li class="user_child" *ngIf='user_active'>
+                          <a routerLink="users/applicants"
+                            routerLinkActive="active">
+                            <img width="25px" src="assets/interviewee.png" alt="">
+                            Applicants
+                            <span
+                              class="pull-right">
+                              <svg
+                                width="1em"
+                                height="1em"
+                                viewBox="0 0 16 16"
+                                class="bi bi-chevron-right chev-form pull-right"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                                  6a.5.5
+                                  0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8
+                                  4.646
+                                  2.354a.5.5
+                                  0
+                                  0 1 0-.708z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </li> 
+                        <li>
+                          <a (click)="activateSettingsChild()" routerLinkActive="active"
+                            routerLink="/main/config">
+                            <img width="25px" src="assets/settings.png" alt="">
+                            Settings
+                            <span
+                              class="pull-right">
+                              <svg
+                                width="1em"
+                                height="1em"
+                                viewBox="0 0 16 16"
+                                class="bi bi-chevron-right chev-form pull-right"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                                  6a.5.5
+                                  0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293
+                                  8
+                                  4.646
+                                  2.354a.5.5
+                                  0
+                                  0 1 0-.708z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </li>
+                         <section *ngIf='settings_active' class="settings-child-menu">
+                          <li class="settings_child" >
+                            <a routerLink="/main/profile" routerLinkActive="active">
+                              <!-- <img width="25px" src="assets/results.png" alt=""> -->
+                              Profile
+                              <span
+                                class="pull-right">
+                                <svg
+                                  width="1em"
+                                  height="1em"
+                                  viewBox="0 0 16 16"
+                                  class="bi bi-chevron-right chev-form pull-right"
+                                  fill="currentColor"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                                    6a.5.5
+                                    0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8
+                                    4.646
+                                    2.354a.5.5
+                                    0
+                                    0 1 0-.708z"
+                                    />
+                                  </svg>
+                                </span>
+                              </a>
+                            </li>
+                                 <li class="settings_child" *ngIf='settings_active'>
+                            <a routerLink="/main/config/locations" routerLinkActive="active">
+                              <!-- <img width="25px" src="assets/results.png" alt=""> -->
+                              Location
+                              <span
+                                class="pull-right">
+                                <svg
+                                  width="1em"
+                                  height="1em"
+                                  viewBox="0 0 16 16"
+                                  class="bi bi-chevron-right chev-form pull-right"
+                                  fill="currentColor"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                                    6a.5.5
+                                    0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8
+                                    4.646
+                                    2.354a.5.5
+                                    0
+                                    0 1 0-.708z"
+                                    />
+                                  </svg>
+                                </span>
+                              </a>
+                            </li>
+                           <li class="settings_child" *ngIf='settings_active'>
+                            <a routerLink="/main/config/job/category" routerLinkActive="active">
+                              <!-- <img width="25px" src="assets/results.png" alt=""> -->
+                              Job category
+                              <span
+                                class="pull-right">
+                                <svg
+                                  width="1em"
+                                  height="1em"
+                                  viewBox="0 0 16 16"
+                                  class="bi bi-chevron-right chev-form pull-right"
+                                  fill="currentColor"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                                    6a.5.5
+                                    0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8
+                                    4.646
+                                    2.354a.5.5
+                                    0
+                                    0 1 0-.708z"
+                                    />
+                                  </svg>
+                                </span>
+                              </a>
+                            </li>
+                          </section>
+                          <li style="cursor: pointer;"  (click)="logout()">
+                            <a>
+                              <img width="25px" src="assets/logout.png" alt="">
+                              Logout
+                              <span
+                                class="pull-right">
+                                <svg
+                                  width="1em"
+                                  height="1em"
+                                  viewBox="0 0 16 16"
+                                  class="bi bi-chevron-right chev-form
+                                  pull-right"
+                                  fill="currentColor"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                                    6a.5.5
+                                    0 0 1 0 .708l-6 6a.5.5 0 0
+                                    1-.708-.708L10.293 8
+                                    4.646
+                                    2.354a.5.5
+                                    0
+                                    0 1 0-.708z"
+                                    />
+                                  </svg>
+                                </span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <br><br>
+                        <a class="help-link" href="">Having touble? <b> Get help</b></a>
+                        <br> <br>
+                        <section class="side-footer">
+                          <h6 class="copyright-text"><small> ©2020 KCB
+                              recruitment portal <br>
+                              all rights reserved</small></h6>
+                        </section>
+                      </section>
+                    </div>
+                    <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12 left-row">
+                      <div class="containersd">
+                        <div class="row top-outlet">
+                          <div class="col-md-2">
+                            <br>
+                            <span class="home-link" routerLink="/home">
+                              <img width="30px" src="assets/home.png" alt="">
+                              <b> Home</b>
+                            </span>
+                          </div>
+                          <div class="col-md-6">
+                            <br>
+                            <div class="input-group">
+                              <input type="text" class="input form-control
+                                search-input"
+                                placeholder="Search ...">
+                              <div class="input-group-append">
+                                <button class="btn btn-secondary srch"
+                                  type="button">
+                                  <i class="fa fa-search"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <br>
+                            <i (click)="openNotifications(17)" class="fa
+                              fa-bell
+                              notification
+                              fa-3x pull-right"><span class="badge
+                                badge-danger">17</span></i>
+                          </div>
+                          <div class="col-md-2">
+                            <br>
+                            <div routerLink ="/main/profile" class="pull-right avatar" id="avatar"></div>
+                          </div>
+  
+                        </div>
+  
+                        <div class="outlet">
+                          <hr>
+                          <div class="container">
+  
+                            <router-outlet></router-outlet>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <!-- </div> -->
+                <!-- </div> -->
+</div>

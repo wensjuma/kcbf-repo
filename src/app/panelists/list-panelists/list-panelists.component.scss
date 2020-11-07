@@ -1,0 +1,199 @@
+@import './../../user-management/users/users.component.scss';
+.grid-item.left-login{
+
+    background-color: #8a2be2;
+     height:650px !important;
+    width:  650px; 
+    opacity: 0.3;
+}
+.right-login{
+    float: right;
+    background-color: #f3f6f9;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .welcome-text{
+      margin-top: 20% !important;
+      color: #f3f6f9;
+      padding: 15px;
+  }
+  .left-partition{
+  background-image: linear-gradient(#f2f2f2, #ffffff);
+  height: 650px !important;
+  z-index: 10;
+  padding: 20px;
+  /* opacity: 0.4; */
+  box-shadow:  0px 0px 6px #192c43;
+  } 
+  .right-partition{
+  background-color: #f3f6f9;
+  height: 650px !important;
+  }
+  .card-create, .card-form{
+      background-color: #ffffff;
+      margin-left: 50px;
+      z-index: -10;
+      width: 80% !important;
+      padding:  5px !important;
+      margin-top: 10px;
+      box-shadow: 0 1px 4px #aec9f1;
+      border-radius: 2px;
+  }
+  .card-create:hover{
+    cursor: pointer;
+    background-color: #eff5fc;
+  }
+  .card-form:hover{
+    cursor: pointer;
+    background-color: #eff5fc;
+  }
+  .text-top{
+    margin-left: 5px;
+    margin-top: 1%;
+  }
+  .bi-chevron-right{
+      color: #3e85f0;
+      font-size: large !important;
+      font-weight: bolder !important;
+     
+  }
+  .chev-form{
+    margin-left: 76%;
+  } 
+  .chev-create{
+    margin-left: 74%;
+
+  }
+  .get-help{
+    float: right !important;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #192c43 !important;
+  }
+  .help-link{
+    margin-left: 20%;
+    text-align: center !important;
+    margin-top: 40% !important;
+  }
+ 
+  .login-btn{
+      color: #ffffff;
+      background-color: #192c43;
+  }
+  .sign-up-link{
+      margin-left: 40%
+  }
+  mat-form-field{
+      width: 100%; 
+  }
+  .text-start{
+    font-size: 14pt;
+  }
+  .login-row{
+      overflow-y: hidden;
+      overflow-x: hidden;
+  }
+  .body{
+    overflow-y: hidden;
+    overflow-x: hidden; 
+  }
+  .logo-img{
+    box-shadow: 0 1px 5px;
+  }
+  table.mat-table {
+    width: 100%;
+    margin-right: 5px;
+    
+  }
+  mat-paginator{
+    width: 100%;
+    margin-right: 5px;
+  }
+  .create-panelist{
+      background-color: #192c43;
+      color: #aec9f1;
+      
+      // margin-left: 95%;
+  }
+  .side-menu{
+      a{
+          padding: 14px;
+          font-weight: bold;
+          color: #192c43;
+          text-decoration: none;
+          font-size: 14pt;
+          li{
+            list-style-type: none;
+          }
+      }
+      li:hover{
+        background-color: #d7dce0;  
+      }
+  }
+  /* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+    border-radius: 20px !important;
+}
+.input{
+   border-radius: 20px !important;
+}
+.srch{
+  margin-left: -20px;
+    border-radius: 20px;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+   border-radius: 20px !important;
+}
+input{
+  border-radius: 5%;
+}
+.side-footer{
+    margin-top: 20%;
+    width: 109% !important;
+    background-color: #eff0f0;
+    margin-left: -10px;
+    padding: 20px;
+}
+.body{
+  background-color: #ffffff;
+}
+.right-partition{
+  background-color: #ffffff;
+}
+th{
+  background-color: #192c43;
+  color: #aec9f1;
+  font-weight: bold;
+}
+.hide-action td.ng2-smart-actions a {
+  display: none;
+}

@@ -1,0 +1,84 @@
+<div class="continer">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form [formGroup]="form">
+                <div class="row form-full">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="person-icon">
+                            <img *ngIf="url" src="url" style="width:
+                                150px; height:
+                                150px; border-radius: 50%;">
+                            <img *ngIf="!url" src="assets/login-bg-img.png" style="width:
+                                150px; height:
+                                150px; border-radius: 50%;">
+                            <input #fileInput (change)="onPersonEdit($event)"
+                                required accept=".png"
+                                type="file" style="opacity: 0.0; position:
+                                absolute; top:120px;
+                                left: 30px; bottom: 0; right:0; width: 200px;
+                                height:200px;" />
+                            <button mat-raised-button class="btn-submits
+                                upload-btn" type="button"
+                                (click)="fileInput.click()">
+                                <span>Change</span>
+                                <!-- <input #fileInput type="file" (change)="selectFile($event)" style="display:none;" /> -->
+                            </button>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">First Name</label>
+                        <input formControlName="first_name" class="form-control"
+                            type="text">
+                        <br>
+                        <hr>
+                        <label for="">Email Address</label>
+                        <input formControlName="email_address"
+                            class="form-control" type="text">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Middle name</label>
+                        <input formControlName="middle_name"
+                            class="form-control" type="text">
+                        <br>
+                        <hr>
+                        <label for="">Phone number</label>
+                        <input formControlName="phone_number"
+                            class="form-control" type="text">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Last name</label>
+                        <input formControlName="last_name" class="form-control"
+                            type="text">
+                        <br>
+                        <hr>
+                        <label for="">Date of Registration</label>
+                        <input formControlName="created_on" class="form-control"
+                            type="text">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <br>
+                    <!-- <div style="text-align:center">
+                        <br>
+                        <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+                        <div><img [src]="url" style="border-radius: 50%;"
+                                width="150px" height="150px" *ngIf="url"></div>
+                        <p>
+                            <input type="file" (change)="selectFile($event)">
+                        </p>
+                    </div> -->
+                </div>
+                <br>
+                <hr>
+                <button disabled class="btn pull-right btn-submits">Save changes</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

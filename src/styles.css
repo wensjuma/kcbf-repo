@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~font-awesome/css/font-awesome.css";   
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:host::ng-deep ng2-smart-table thead > tr > th  { 
+    background-color:#003e4d; 
+    color: #ffffff !important; 
+}
+
+.btn-submits{
+    background-color: #003e4d !important;
+    color: aliceblue !important;
+}
+:host ng-deep ng2-smart-table{
+    font-size: 12px;
+}

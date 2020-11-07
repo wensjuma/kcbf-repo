@@ -1,0 +1,27 @@
+<div class="container">
+    <section class="section">
+        <b> Panelist Details</b> <br>
+<br>
+        <small><b>Name </b>{{details.data.first_name}}
+            {{details.data.middle_name}} {{details.data.last_name}}</small>
+        <hr>
+        <small><b>Description </b> {{details.data.description}}</small>
+        <hr>
+        <small><b>Email</b> {{details.data.email_address}}</small>
+        <hr>
+        <small><b>Phone </b> {{details.data.phone_number}}</small>
+        <hr>
+        <small><b>Panelist Position </b>{{details.data.panel_role}}</small>
+        <hr>
+
+    </section>
+    <hr>
+
+    <button
+        mat-raised-button
+        color="primary"
+        (click)="close()"
+        class="pull-right">
+        Close
+    </button>
+</div>

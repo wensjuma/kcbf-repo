@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-12">
+        <!-- -->
+        <br>
+        <b> Interviewees
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="addInterviewee($event)"
+                class="pull-right btn-submits">
+                Add Interviewee
+            </button>
+            <hr>
+        </b>
+    
+
+        <div class="des">
+            <ng2-smart-table [settings]="settings" [source]="interviewees"
+                (custom)="onCustomAction($event)"></ng2-smart-table>
+        </div>
+    </div>
+</div>

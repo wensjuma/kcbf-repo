@@ -1,0 +1,38 @@
+<div class="container">
+    <h5><b>Add panelist to the interview</b></h5>
+    <div class="col-md-12">
+
+        <form class="panelist-form" (ngSubmit)="onSubmit(form.value)"
+            [formGroup]="form">
+            <div class="form-group">
+                <select type="number" placeholder="Select location"
+                    class="form-control" formControlName="user"
+                    required>
+                    <option value="">--Select user--</option>
+                    <option *ngFor="let user of users" value="{{user.user_Id}}">{{user.email_address}}</option>
+                    <small class="text-danger" *ngIf="form.get('user').touched
+                        &&
+                        form.get('user').hasError('requred')">Username is
+                        required</small>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Panel role"
+                    class="form-control" formControlName="panel_role"
+                    >
+                <small class="text-danger" *ngIf="form.get('panel_role').touched
+                    &&
+                    form.get('panel_role').hasError('requred')">this is a
+                    required field</small>
+            </div>
+            <div class="form-group">
+
+                <textarea type="text" placeholder="Description(Optional)"
+                    class="form-control" formControlName="description"></textarea>
+            </div>
+            <button (click) ="close()" mat-raised-button class="btn-primary pull-rights">Cancel</button>
+            <button type="submit" mat-raised-button [disabled]="!form.value"
+                class="btn-primary pull-right">Submit</button>
+        </form>
+    </div>
+</div>

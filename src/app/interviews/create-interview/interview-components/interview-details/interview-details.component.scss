@@ -1,0 +1,52 @@
+
+input, select , textarea{
+    width: 100% !important;
+}
+
+.mto{
+    input{
+        width: 85% !important;
+        margin-top: -15px;
+    } 
+}
+.mto-date{
+    input{
+        width: 150px !important;
+        margin-top: 0px;
+    }
+}
+.application_end_date{
+    input{
+        width: 120px !important;
+        margin-top: 0px;
+    }
+}
+
+.input-interview-date{
+    height: 38px !important;
+    margin-top: -15px;
+}
+.input-group-date{
+    height: 38px !important;
+    margin-top: 0px;
+}
+.start, .end{
+    height: 38px !important; 
+}
+#time_int{
+    width: 150px !important;
+    // margin-left: 60px !important;
+
+}
+::ng-deep .mat-horizontal-stepper-header-container {
+    display: none !important;
+  }
+ 
+  
+  .input_ad_date{
+      width: 150px !important;
+   
+  }
+  mat-form-field{
+      width: 100% !important;
+  }

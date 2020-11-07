@@ -1,0 +1,110 @@
+.grid-item.left-login{
+
+    background-color: #8a2be2;
+     height:650px !important;
+    width:  650px; 
+    opacity: 0.3;
+}
+.right-login{
+    float: right;
+    background-color: #f3f6f9;
+    margin-bottom: 50px !important;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .welcome-text{
+      margin-top: 200px !important;
+      color: #f3f6f9;
+      margin-left: 200px;
+      padding: 20px;
+  }
+  .left-partition{
+  // background-color: #06172c;
+  height: 650px !important;
+  z-index: 12;
+  position: static;
+// background-image: url('');
+  opacity: 0.8;
+  box-shadow:  0px 0px 6px #192c43;
+  } 
+  .right-partition{
+  background-color: #f3f6f9;
+  height: 650px !important;
+  }
+  .card-login{
+      background-color: #ffffff;
+      margin-left: 490px;
+      z-index: -10;
+      width: 45% !important;
+      padding:  20px !important;
+      margin-top: 20px;
+      
+  }
+  .logo-img{
+    margin-left: 400px;
+  }
+  .login-btn{
+      color: #ffffff;
+      background-color: #192c43;
+  }
+  .sign-up-link{
+      margin-left: 40%
+  }
+  mat-form-field{
+      width: 100%; 
+  }
+  .login-row{
+    //   overflow-y: hidden;
+      overflow-x: hidden;
+  }
+  .body{
+    overflow-y: hidden;
+    overflow-x: hidden; 
+  }
+  .card-login-container{
+      margin-top: -100px;
+      margin-left: -400px;
+      padding: 20px;
+      margin-right: 100px;
+      box-shadow: 0 1px 3px #192c43;
+      height: 500px;
+      position: absolute;
+      background-color: #E7E7E7 !important;
+      z-index: 5;
+   
+  }
+  #img-blue-rectangle{
+      z-index: -12;
+      margin-top: 30px !important;
+      margin-left: 145px !important;
+    //   position: static;
+  }
+  #bottom-rect{
+      margin-left: 250px;
+      margin-top: 340px;
+      z-index: -10;
+    //   position: static;
+  }
+
+.green-rect{
+    margin-left: 300px !important;
+    margin-top: 20px !important;
+    z-index: -10;
+    width: 140px;
+}
+// .logo-img {
+//   width: 100%;
+//   height: auto;
+// }
+
+

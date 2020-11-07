@@ -1,0 +1,24 @@
+.card-create, .card-form, .card-user{
+    background-color: #ffffff;
+    margin-left: 50px;
+    z-index: -10;
+    width: 80% !important;
+    padding:  5px !important;
+    margin-top: 10px;
+    box-shadow: 0 1px 2px #3e444e;
+    border-radius: 2px;
+    &:hover{
+      cursor: pointer;
+      background-color: #eff5fc;
+      // padding:  10px !important;
+      // transform: scale(1);  
+    }
+    padding: 10px;
+    svg{
+      color: #3e85f0;
+      font-size: large !important;
+      font-weight: 900 !important;
+      margin-top: 5px !important;
+     
+    }
+}

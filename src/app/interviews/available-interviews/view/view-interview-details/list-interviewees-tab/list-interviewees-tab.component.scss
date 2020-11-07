@@ -1,0 +1,33 @@
+@import "../view-interview-details.component.scss";
+
+:host ::ng-deep ng2-smart-table{
+    font-size: 13px;
+    text-align: center;
+}
+    :host ::ng-deep .ng2-smart-action-custom-custom i.hide-action {
+        // padding-top: 0.8em;
+        display: none !important;
+        }
+        :host ::ng-deep .ng2-smart-action.ng2-smart-action-custom-custom:hover {
+            color: #1e6bb8;
+        }
+        
+// :host /deep/ ng2-smart-table { font-size: 18pt !important; }
+// tr .ng2-smart-actions{ display: flex; }
+// ng2-st-tbody-custom {display: flex;}
+
+ng2-st-tbody-edit-delete a.ng2-smart-action {display: inline-block !important;}
+ng2-st-tbody-create-cancel a.ng2-smart-action {display: inline-block !important;}
+ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom {display: inline-block;text-align: center;}
+
+ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom>* {margin:0 1px;}
+
+tr.interview-done i.btn-start  {
+    display: none !important;
+  }
+  tr.accepted i.fa-check  {
+    display: none;
+  }
+  tr.rejected i.fa-times  {
+    display: none;
+  }

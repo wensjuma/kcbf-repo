@@ -1,0 +1,19 @@
+<div class="row">
+   <div class="col-md-12">
+       <br>
+    <b> Panelists 
+                <button
+        mat-raised-button
+        color="primary"
+        (click)="addPanelist(interview_details)"
+        class="pull-right btn-submits">
+        Add panelist
+    </button>
+        <hr>
+    </b>
+    <div class="des">
+        <ng2-smart-table [settings]="settings" [source]="panelists"
+            (custom)="onCustomAction($event)"></ng2-smart-table>
+    </div>
+   </div>
+</div>

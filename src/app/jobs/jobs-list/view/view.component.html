@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-md-3">
+<div class="card-form">
+    <b> Job Details
+        <button class="pull-right" mat-raised-button
+            routerLink="/main/jobs"> <span
+                class="fa fa-arrow-left"></span> Back</button>
+        <br>
+    </b> <br>
+    <section class="section">
+        <hr>
+        <small><b>Title </b>{{job_details.job_title}}</small>
+        <hr>
+        <small><b>Field </b> {{job_details.job_field}}</small>
+        <hr>
+        <small><b>Job type</b> {{job_details.job_type}}</small>
+        <hr> 
+        <small><b>Location</b> {{job_details.work_location}}</small>
+        <hr>
+        <small><b>Qualification</b> {{job_details.qualifications}}</small>
+        <hr>
+        <small *ngIf="job_details.published"><b> Published on </b>{{job_details.published_on |
+            date:'short'}}</small>
+        <hr>
+        <small *ngIf="job_details.published"><b>Published </b> <span
+                class="badge badge-success"> YES</span></small>
+        <small *ngIf="!job_details.published"><b>Published </b> <span
+                class="badge badge-secondary"> No </span></small>
+    </section>
+
+    <button *ngIf="!job_details.published" (click)="publish(job_details)" class="btn-success btn-block btn btn-sm">Publish</button>
+    <button *ngIf="job_details.published" (click)="unpublish(job_details)" class="btn-warning btn-block btn btn-sm">unpublish</button>
+</div>
+
+    </div>
+    <div class="col-md-9">
+        <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z1">
+            <mat-tab label="APPLICANTS">
+                <app-list-applicants></app-list-applicants>
+            </mat-tab>
+          </mat-tab-group>  
+    </div>
+    
+</div>

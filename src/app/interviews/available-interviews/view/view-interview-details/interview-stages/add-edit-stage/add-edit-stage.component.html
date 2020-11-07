@@ -1,0 +1,33 @@
+<div class="container">
+    <h2><b><small>{{title}}</small></b></h2>
+    <hr>
+    <!-- <div class="col-md-4"></div> -->
+    <form class="form" [formGroup]="form" (ngSubmit) ="onSubmit(form.value)">
+        <div class="form-group">
+            <input type="text" placeholder="Stage name"
+                class="form-control" formControlName="stage_name"
+                required>
+        </div>
+       
+        
+        <div class="form-group">
+            <textarea type="text" placeholder="Description"
+                class="form-control" formControlName="description"
+                required></textarea>
+        </div>
+        <div class="form-group">
+            <select type="text" placeholder="Is stage final?"
+                class="form-control" formControlName="is_stage_last"
+                required>
+                <option [ngValue]="null" selected>--Is stage final?--</option>
+                <option [ngValue]="false">No</option>
+                <option [ngValue]="true">Yes</option>
+            </select>
+        </div>
+        <hr>
+        <button type="button" mat-raised-button (click)="close()"
+            class="btn-default">Cancel</button>
+        <button type="submit" mat-raised-button 
+            class="btn-default btn-submits pull-right">Submit</button>
+    </form>
+</div>

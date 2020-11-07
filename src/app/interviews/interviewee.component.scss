@@ -1,0 +1,116 @@
+@import '../../styles.css';
+.interview-form{
+  margin-right: 20px !important;
+  margin-top: -40px;
+  z-index: 4;
+}
+.container{
+  padding: 10px;
+  background: #ffffff;
+  margin-right: 20px !important;
+  // height: 200px;
+}
+.progress-bar{
+  // padding: 10px;
+  background-color: #6fc000;
+}
+mat-form-field{
+  width: 100%;
+  height: 15px !important;
+}
+.btn-info{
+  background-color: #192c43;
+}
+mat-horizontal-stepper{
+  margin-top: -40px;
+}
+.circle-btn-2{
+  background-color: #192c43;
+}
+.btn-circle.btn-sm { 
+  width: 30px; 
+  height: 30px; 
+  padding: 6px 0px; 
+  border-radius: 15px; 
+  font-size: 10px; 
+  // background-color: #192c43;
+  text-align: center; 
+} 
+.btn-circle:hover{
+  background-color: #192c43;
+  color: #fff;
+}
+side-menu-container{
+  padding: 0px !important;
+}
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
+  box-sizing: border-box;
+  flex-direction: column;
+  height: auto;
+  padding: 0px !important;
+}
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: none !important;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 1px;
+ 
+}
+mat-radio-button{
+  font-size: 10pt !important;
+}
+// .mat-radio-button:checked {
+//   .btn-circle{
+//     background-color: #192c43;
+//   }
+// }
+.singleClass{
+   background-color: #46678f;
+  color: #fff;
+}
+// .award-input {
+//   width: 4%;
+//   padding: 1px 2px;
+  
+ 
+//   border: 1px solid #ccc;
+//   border-radius: 2px;
+//   box-sizing: border-box;
+// }
+.award-input {
+  width: 13%;
+  height: 20px;
+  padding: 1px 2px;
+  
+  display: inline-block;
+  border: 0px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  background-color: rgb(243, 247, 248);
+}
+p {
+  font-family: Lato;
+}
+body{background: #444;}
+.page-item{
+  display:none;
+}
+
+.page-item{display: none!important;}
+
+ngb-pagination::ng-deep .page-link:focus {
+  box-shadow: none;
+}
+::ng-deep ngb-pagination{
+  margin-left: 50% !important;
+}
+.cdown{
+  float: right;
+  
+}
+.form-option{
+  margin-left: 16px;
+}
+.timeout{
+  color: red;
+}

@@ -1,0 +1,113 @@
+.grid-item.left-login{
+
+    background-color: #8a2be2;
+     height:650px !important;
+    width:  650px; 
+    opacity: 0.3;
+}
+.right-login{
+    float: right;
+    background-color: #f3f6f9;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .welcome-text{
+      margin-top: 210px !important;
+      color: #f3f6f9;
+      padding: 15px;
+  }
+  .left-partition{
+  background-color: #192c43;
+  height: 650px !important;
+  z-index: 10;
+  padding: 20px;
+  /* opacity: 0.4; */
+  box-shadow:  0px 0px 6px #192c43;
+  } 
+  .right-partition{
+  background-color: #f3f6f9;
+  height: 650px !important;
+  }
+  .card-create, .card-form, .card-user{
+      background-color: #ffffff;
+      margin-left: 50px;
+      z-index: -10;
+      width: 80% !important;
+      padding:  5px !important;
+      margin-top: 10px;
+      box-shadow: 0 1px 2px #3e444e;
+      border-radius: 5px;
+      &:hover{
+        cursor: pointer;
+        background-color: #eff5fc;
+        // padding:  10px !important;
+        // transform: scale(1);  
+      }
+      svg{
+        color: #3e85f0;
+        font-size: large !important;
+        font-weight: 900 !important;
+        margin-top: 20px !important;
+       
+      }
+  }
+  
+    .img-responsive {
+      width: 100%;
+      height: auto;
+    }
+  
+  
+  .text-top{
+    margin-left: 50px;
+    margin-top: 15%;
+  }
+
+  .get-help{
+    float: right !important;
+    margin-right: 15%;
+    text-decoration: none;
+    color: #192c43 !important;
+  }
+  .converse-img{
+    float: right;
+    margin-top: 35% !important;
+  }
+ 
+  .login-btn{
+      color: #ffffff;
+      background-color: #192c43;
+  }
+  .sign-up-link{
+      margin-left: 40%
+  }
+  mat-form-field{
+      width: 100%; 
+  }
+  .text-start{
+    font-size: 14pt;
+  }
+  .login-row{
+      overflow-y: hidden;
+      overflow-x: hidden;
+  }
+  .body{
+    overflow-y: hidden;
+    overflow-x: hidden; 
+  }
+  .logo-img{
+    box-shadow: 0 1px 5px;
+  }
+
+
+

@@ -1,0 +1,12 @@
+<div class="container">
+    <h3> <b>List of Users</b></h3>
+    <small>create and remove users</small>
+    <button mat-raised-button class="btn-default pull-right"
+        (click)="createUserDialog($event, 'create')"><span class="fa fa-plus"></span>
+        <small> <b> CREATE USER</b></small>
+
+    </button>
+    <br>
+    <br>
+    <ng2-smart-table (custom) ="onCustomAction($event)" [settings]="settings" [source]="users"></ng2-smart-table>
+</div>

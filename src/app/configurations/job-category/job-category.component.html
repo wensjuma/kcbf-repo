@@ -1,0 +1,36 @@
+
+<div class="prod-container">
+    <div class="row" id="order-rows">
+        <!-- <div class="col-md-3"></div> -->
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-top">
+                        <h3> <b>Job categories</b></h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <button (click)="editRecord($event, 'create')"
+                    mat-raised-button class="new_interview pull-right btn-submits"> <span class="fa
+                        fa-plus"></span> Job category</button>
+                </div>
+                <div class="col-md-12 right-partition">          
+                  
+                    <div class="mat-elevation-z8">
+                        <ng2-smart-table [settings]="settings" [source]="category"
+                            (custom)="onCustomAction($event)"></ng2-smart-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6"></div>
+        <div class="col-md-3">
+            <div id="mybutton">
+              
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+variables:
+  CHART_DIR: charts
+  CI_IMAGE_TAG: "v1.0.9"
+stages:
+- build
+- deploy
+- test
+build_src:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  before_script:
+  - printenv
+  - echo "Adding .docker configuration"
+  - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+  - echo "Adding certificate"
+  - export CI_REGISTRY_IMAGE="$CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME"
+  - echo $K8_SSL_CERTIFICATE >> /kaniko/ssl/certs/ca-certificates.crt
+  script:
+  - ls -al /kaniko/ssl/certs
+  - /kaniko/executor  --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:$CI_IMAGE_TAG --destination $CI_REGISTRY_IMAGE:latest
+  only:
+    changes:
+    - Dockerfile
+    - src/**/*
+    - tsconfig.json
+    - angular.json
+test_app:
+  stage: test 
+  image: 
+    name: alpine:latest
+  script:
+  - echo "Testing application"
+  - echo "Test completed"
+  only:
+    changes:
+    - Dockerfile
+    - src
+    - angular.json
+
+# Deployment script
+deploy_k8:
+  stage: deploy
+  image: 
+    name: 10.2.0.6:11500/root/ehelm:latest
+    entrypoint: [""]
+  before_script:
+    - ls -al 
+    - echo "Running deployment"
+    - export API_VERSION=$(grep "appVersion" charts/Chart.yaml | cut -d" " -f2)
+    - export RELEASE_NAME=$(grep "name" charts/Chart.yaml | cut -d" " -f2)
+    - helm-before-script
+    - echo "Check if deployment exists"
+    - export DEPLOYS=$(helm -n $STAGING_NAMESPACE ls | grep $RELEASE_NAME | wc -l)
+  script:
+    - cat ~/.kube/config
+    - kubectl -n $STAGING_NAMESPACE get pods
+    - cd ${CHART_DIR}
+    - |
+      if [ $DEPLOYS  -gt 0 ]; then 
+        echo "Upgrading ${RELEASE_NAME} to ${API_VERSION}"
+        helm --namespace=$STAGING_NAMESPACE upgrade $RELEASE_NAME . 
+      else
+        echo "Deploying a new application $RELEASE_NAME"
+        helm --namespace=$STAGING_NAMESPACE install $RELEASE_NAME .
+      fi
+

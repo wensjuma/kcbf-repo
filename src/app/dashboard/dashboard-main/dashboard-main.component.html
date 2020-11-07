@@ -1,0 +1,75 @@
+<div class="dashboard">
+    
+
+    <div class="row">
+        <!-- <div class="col-md-3"></div> -->
+        <div class="col-md-12">
+
+            <div class="card-top mat-elevation-z1">
+
+                <h5>
+                    <button mat-button
+                        routerLink="/main/interviews/list/interviews"
+                        class="pull-left"><i class="fa fa-arrow-left"></i> Back</button>
+                    <b>Analytics page</b>
+                </h5>
+            </div>
+            <br>
+            <!-- <div class="card-top mat-elevation-z1"> -->
+
+            <form [formGroup]="form" action="">
+                <div class="row">
+
+                    <!-- <div class="col-md-4"></div> -->
+                    <div class="col-md-4">
+                        <select formControlName="stat_type" type="text"
+                            class="form-control">
+                            bg-warning
+                            <option value="">--INTERVIEWS --</option>
+                           
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select (change)="onChange($event.target.value)"
+                            formControlName="category" type="text"
+                            class="form-control">
+                            <option value="all" selected>--All --</option>
+                            <option value="today">Today</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span (click)="p.toggle()" class="input-group-text"><i
+                                class="fa
+                                fa-calendar"></i>
+                            <input class="form-control" id="date" placeholder="Select date..."
+                                formControlName="date_time" ngbDatepicker
+                                #p="ngbDatepicker">
+                        </span>
+                        <!-- <div class="input-group-append" (click)="p.toggle()">
+                    <span class="input-group-text"><i class="fa
+                            fa-calendar"></i></span>
+                </div> -->
+                    </div>
+
+                </div>
+            </form>
+            <app-info-panel-cards></app-info-panel-cards>
+            <!--</div> -->
+        </div>
+    </div>
+      
+          <!-- <section class="graphs-section"> -->
+            <div class="row">
+            <div class="col-md-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                <br>
+                <!-- <app-bar></app-bar> -->
+                <app-interview-scores-graph [interviewCounts]="interviewCounts"></app-interview-scores-graph>
+            </div>
+            <!-- <div class="col-md-6 col-xl-6 col-sm-9 col-lg-6 col-xs-10">
+                <br>
+                <app-line></app-line>
+            </div> -->
+        </div>
+        <!-- </section> -->
+            
+</div>

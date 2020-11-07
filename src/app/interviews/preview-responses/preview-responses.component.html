@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h5 class="pull-right text-danger"><b> Total score {{final_score}}</b></h5>
+            <br>
+            <p *ngFor = "let response of stored_response">
+                <span>{{response.question }} </span>
+               <span>
+                   <br>
+                 <b class="response-text text-success">{{response.option_text}}</b>
+                <span class="pull-right text-success">Score <b class="response-results">{{response.score}}
+                    <i (click)="editResponse(response)" class="fa fa-pencil text-info"></i>
+                </b></span>
+               
+                <hr>
+               </span>
+              
+            </p>
+           
+            <button (click) = "endActualInterview()" mat-raised-button class="pull-right btn-submits">Submit</button>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

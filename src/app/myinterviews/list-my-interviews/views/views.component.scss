@@ -1,0 +1,33 @@
+
+.section{
+    background-color: #eaeaea;
+    border-radius: 3px;
+    padding: 10px !important;
+}
+.card-form{
+    background-color: #ffffff;
+    margin-left: 0px;
+    z-index: -10;
+    width: 98% !important;
+    padding:  5px !important;
+    margin-top: 10px;
+    box-shadow: 0 1px 2px #3e444e;
+    border-radius: 5px;
+}
+button.btn-submits{
+    background-color: #003e4d !important;
+    color: aliceblue;
+}
+button.pull-rights{
+    color: aliceblue;
+    background-color: #6ec000 !important;
+}
+button.details{
+    height: 30px !important;
+}
+.panelist_section{
+    background-color: #eff0f0;
+  
+    border: 1px #003e4d;
+    cursor: pointer;
+}

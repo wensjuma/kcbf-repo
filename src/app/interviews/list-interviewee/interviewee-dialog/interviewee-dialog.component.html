@@ -1,0 +1,94 @@
+<div class="container">
+    <h4 class="title"><small><b>{{title}}</b></small></h4>
+    <hr>
+    <div class="form" [formGroup]="createFormGroup">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- <mat-form-field appearance="outline">
+                <mat-label>Select Gender</mat-label>
+             
+            </mat-form-field> -->
+                <div class="form-group">
+
+                    <select class="form-control" type="text">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="prefer-not">Prefer not to say</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <!--============-->
+            <div class="col-md-4">
+                <div class="form-group">
+
+                    <input type="text" placeholder="First name"
+                        class="form-control" formControlName="firstname"
+                        required>
+                </div>
+                <div class="form-group">
+                    <!-- <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput type="text">
+                </mat-form-field> -->
+                    <input type="text" placeholder="Phone Number"
+                        class="form-control" formControlName="phonenumber"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+
+                    <input type="text" placeholder="Middle name"
+                        class="form-control" formControlName="middlename"
+                        required>
+                </div>
+                <div class="form-group">
+
+                    <input type="email" placeholder="Email Address"
+                        class="form-control" formControlName="email"
+                        required>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+
+                    <input type="text" placeholder="Last name"
+                        class="form-control" formControlName="lastname"
+                        required>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    <textarea type="email" placeholder="Provide bio
+                        data(Optional)"
+                        class="form-control" formControlName="bio"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+
+                    <textarea type="email" placeholder="Describe
+                        interviewee(Optional)"
+                        class="form-control" formControlName="description"></textarea>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <button class="btn btn-block btn-default cancel" disabled>CANCEL</button>
+            </div>
+            <div class="col-md-3">
+                <button (click)="createInterviewee()" class="btn btn-block
+                    btn-default submit">SUBMIT</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>

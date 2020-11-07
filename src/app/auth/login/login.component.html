@@ -1,0 +1,57 @@
+<div class="body">
+  <div class="row login-row">
+    <div style="background-image: url('assets/login-bg-img.png');" class="col-md-5  col-sm-12 col-lg-5 left-partition">
+      <!-- <img width="80" id="img-blue-rectangle" src="assets/Rectangle.png" alt="" /> -->
+      <div class="welcome-text">
+        Welcome to <b>KCB REQUIREMENTS PORTAL</b>
+        <hr class="text-light" />
+        <small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem,
+          aliquid unde. Rem fugit aliquid saepe magni ex quae. Assumenda
+          distinctio animi alias porro quam similique aut at sequi voluptatem
+          magni!</small>
+        <br />
+        <br />
+        <button class="btn btn-outline-light">Read more</button>
+      </div>
+    </div>
+    <div class="col-md-7 col-sm-12 col-lg-7 col-xl-7  right-partition">
+      <img class="green-rect" src="assets/green-rect.png" alt="" />
+      <div class="card-login-container">
+        <img class="logo-img" src="assets/found-logo.png" width="500" height="50" alt="" />
+        <br />
+        <div class="card-login">
+          <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+          <form [formGroup]="loginForm">
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>User name</mat-label>
+                <input formControlName="username" matInput placeholder="" />
+              </mat-form-field>
+              <small class="text-danger" *ngIf="
+                  loginForm.get('username').touched &&
+                  loginForm.get('username').hasError('requred')
+                ">Username is required</small>
+            </div>
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input formControlName="password" matInput type="password" />
+              </mat-form-field>
+              <small class="text-danger" *ngIf="
+                  loginForm.get('password').touched &&
+                  loginForm.get('password').hasError('minLength')
+                ">Password is required</small>
+            </div>
+            <hr />
+            <button [disabled]="!loginForm.valid" class="btn btn-block login-btn" (click)="submitLogin()">
+              Login
+            </button>
+            <hr />
+            <a class="sign-up-link" href="">Register new user?</a>
+          </form>
+        </div>
+      </div>
+      <img width="100" id="bottom-rect" src="assets/navy-rect.png" alt="" />
+    </div>
+  </div>
+</div>

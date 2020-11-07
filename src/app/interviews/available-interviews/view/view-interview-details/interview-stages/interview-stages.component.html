@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-12">
+        <!-- -->
+        <br>
+        <b> Interview Stages
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="addStage($event, 'create')"
+                class="pull-right btn-submits">
+                Add Stage
+            </button>
+            <hr>
+        </b>
+    <div class="des">
+            <ng2-smart-table [settings]="settings" [source]="stages"
+                (custom)="onCustomAction($event)"></ng2-smart-table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+mat-accordion{
+    width: 100% !important;
+    margin-bottom: 30px !important ;
+}
+#protocal{
+    margin-bottom: 20px !important;
+}
+#order-rows{
+    margin: 10px 10px;
+   
+}
+.column1, .column2{
+    background-color: #d3d3d3;
+    border-radius: 5px !important;
+}
+mat-card{
+    /* max-height: 250px !important; */
+    max-height: max-content !important;
+}
+.detail-section{
+    background-color: #e9ebec;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+
+.new_interview {
+    color: aliceblue;
+    background-color: #003e4d !important;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border-color: #003e4d;
+  }
+  
+ ::ng-deep ng2-smart-table thead > tr > th  { 
+    background-color:#003e4d; 
+    color: #ffffff !important; 
+}
+::ng-deep ng2-smart-table span > .btn-primary{
+    background-color:#003e4d; 
+    color: #ffffff !important; 
+}
+:host ng-deep ng2-smart-table{
+    font-size: 12px;
+}

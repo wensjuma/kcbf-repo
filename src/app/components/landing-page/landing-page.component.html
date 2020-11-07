@@ -1,0 +1,186 @@
+<div class="body">
+  <div class="row login-row">
+    <div class="col-md-3 left-partition">
+      <br />
+      <img
+        src="assets/found-logo.png"
+        class="logo-img img-responsive"
+        width="320px"
+        height="50px"
+        alt=""
+      />
+      <div class="welcome-text">
+        <h4 class="text-start">
+          <b> A few click away from starting your Questionaire </b>
+        </h4>
+        <small
+          >Create panelist & Interviewee with a simple click and save time
+        </small>
+      </div>
+      <img
+        height="80px"
+        class="converse-img"
+        src="assets/conversation-icon.png"
+        alt=""
+      />
+    </div>
+    <div class="col-md-9 right-partition">
+      <a class="get-help" href="">Having touble? <b> Get help</b></a>
+
+      <div class="text-top">
+        <h3>
+          <b>Hi {{ currentUser.sub.split("@")[0] }}</b>
+        </h3>
+        <small>What would you like to do today?</small>
+
+        <br />
+        <br />
+      </div>
+
+      <div
+        (mouseover)="userImg = true"
+        (mouseout)="userImg = false"
+        routerLink="/main/users"
+        class="card-user"
+      >
+        <div class="row">
+          <div class="col-md-1">
+            <!-- <img   src="assets/interviewee.png" height="60px" alt=""> -->
+            <img
+              *ngIf="userImg"
+              src="assets/activeuser.png"
+              height="60px"
+              alt=""
+            />
+            <img
+              *ngIf="!userImg"
+              src="assets/inactiveuser.png"
+              height="60px"
+              alt=""
+            />
+          </div>
+          <div class="col-md-7">
+            <section class="sect-text">
+              <b> Manage users</b><br />
+              <small> Create and manage system users</small>
+            </section>
+          </div>
+          <div class="col-md-4">
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              class="bi bi-chevron-right chev-create pull-right"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                6a.5.5 0
+                0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0
+                0 1
+                0-.708z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- <div
+        (mouseover)="createImg = true"
+        (mouseout)="createImg = false"
+        routerLink="/main/panelists"
+        class="card-create"
+      >
+        <div class="row">
+          <div class="col-md-1">
+            <img
+              *ngIf="!createImg"
+              src="assets/create.png"
+              height="60px"
+              alt=""
+            />
+            <img
+              *ngIf="createImg"
+              src="assets/active_create.png"
+              height="60px"
+              alt=""
+            />
+          </div>
+          <div class="col-md-7">
+            <section class="sect-text">
+              <b> Create Panelists</b> <br />
+              <small>Create and manage the panelists for an interview</small>
+            </section>
+          </div>
+          <div class="col-md-4">
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              class="bi bi-chevron-right chev-create pull-right"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                  6a.5.5 0
+                  0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5
+                  0
+                  0 1
+                  0-.708z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div> -->
+
+      <div
+        (mouseover)="formImg = true"
+        (mouseout)="formImg = false"
+        routerLink="/main/interviews/list/interviews"
+        class="card-form"
+      >
+        <div class="row">
+          <div class="col-md-1">
+            <img
+              *ngIf="!formImg"
+              src="assets/inactive_form.png"
+              height="60px"
+              alt=""
+            />
+            <img *ngIf="formImg" src="assets/forms.png" height="60px" alt="" />
+          </div>
+          <div class="col-md-7 col-sm-12">
+            <section class="sect-text">
+              <b> Interviews</b> <br />
+              <small>Create and manage the Interviewee for an interview</small>
+            </section>
+          </div>
+
+          <div class="col-md-4">
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 16 16"
+              class="bi bi-chevron-right chev-form pull-right"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6
+                    6a.5.5
+                    0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646
+                    2.354a.5.5
+                    0
+                    0 1 0-.708z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-content>
+      <div class="row">
+        <div class="col-12">
+          <h4 class="title"><b>{{jobs.job_title}}</b></h4>
+          <hr>
+          <h6>{{jobs.job_field}}</h6>
+          <p>{{jobs.work_location}}</p>
+        </div>
+       
+      </div>
+      <div class="row">
+      <div class="col-12">
+        <small><i class="fa fa-briefcase"></i> {{jobs.job_type}} &nbsp; &nbsp; <i class="fa
+          fa-calendar"></i> {{jobs.application_end_date.split('T')[0]}} 
+          <i class="fa
+          fa-clock-o"></i> {{jobs.application_end_date.split('T')[1]}}
+        </small>
+        <hr>
+        <small><i class="fa fa-briefcasesd"></i> <b class="salary-text text-success">Salary range</b> &nbsp; &nbsp;  {{jobs.min_salary}} -
+          <i class="fa
+          fa-clocko"></i> {{jobs.max_salary}} <span *ngIf="!jobs.published" class="badge pull-right badge-warning">not published</span>
+          <span *ngIf="jobs.published" class="badge pull-right badge-success"><i class="fa fa-check"></i> published</span>
+        </small>
+          <hr>
+          <h6>Job qualification</h6>
+          <p>{{jobs.qualifications}}</p>
+          <p>{{jobs.description}}</p>
+      </div>
+      </div>
+      <!-- <button *ngIf="!jobs.published" class="pull-right btn-submits" mat-button>Publish</button> -->
+      <br> 
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-button>LIKE</button> -->
+     
+    </mat-card-actions>
+  </mat-card>
+
+</div>

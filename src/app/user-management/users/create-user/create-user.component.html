@@ -1,0 +1,92 @@
+<div class="container">
+    <h4 class="title"><small><b>{{title}}</b></small></h4>
+    <hr>
+    <form (ngSubmit)="onSubmit(form.value)" class="form" [formGroup]="form">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>First name</label>
+                    <input type="text" placeholder="First name"
+                        class="form-control" formControlName="firstname"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" placeholder="Phone Number"
+                        class="form-control" formControlName="phonenumber"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="">Middle name</label>
+                    <input type="text" placeholder="Middle name"
+                        class="form-control" formControlName="middlename"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Last name</label>
+                    <input type="text" placeholder="Last name"
+                        class="form-control" formControlName="lastname"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" placeholder="Email Address"
+                        class="form-control" formControlName="email"
+                        required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="">User type</label>
+                    <select type="text" placeholder="User type"
+                        class="form-control" formControlName="user_type"
+                        required>
+                        <option [ngValue]="null">Select user type</option>
+                        <option *ngFor='let type of user_type'
+                            value="{{type.user_value}}">
+                            {{type.user_type}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">About user</label>
+                    <textarea type="text" placeholder="About user"
+                        class="form-control" formControlName="bio"
+                        required></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Academic qualifications</label>
+                    <textarea type="text" placeholder="describe your academic
+                        details"
+                        class="form-control" formControlName="academic_details"
+                        required></textarea>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <button type="button" mat-raised-button class="btn btn-block btn-default
+                    cancel" (click)="close()">CANCEL</button>
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-block btn-default
+                    btn-submits pull-right">SUBMIT</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </form>
+</div>

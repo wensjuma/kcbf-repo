@@ -1,0 +1,36 @@
+
+<div class="card-form">
+   
+            <b> Interview Details
+                <button class="pull-right" mat-raised-button
+                    routerLink="/main/interviews/list/interviews"> <span
+                        class="fa fa-arrow-left"></span> Back</button>
+                <br>
+            </b> <br>
+            <section class="section" *ngIf="interview_details">
+                <hr>
+                <small><b>Name </b>{{interview_details.interview_name}}</small>
+                <hr>
+                <small><b>Room </b> {{interview_details.location_name}}</small>
+                <hr>
+                <small><b>Room code</b> {{interview_details.interview_name}}</small>
+                <hr>
+                <small><b>Description</b> {{interview_details.description}}</small>
+                <hr>
+                <small><b>Date </b>{{interview_details.start_date |
+                    date:'short'}}</small>
+                <hr>
+                <small *ngIf="interview_details.completed"><b>Status </b> <span
+                        class="badge badge-secondary"> completed</span></small>
+                <small *ngIf="!interview_details.completed"><b>Status </b> <span
+                        class="badge badge-success"> not done</span></small>
+                        <hr>
+                        <!-- <button
+                        mat-raised-button
+                        color="primary"
+                        (click)="openQuestions(interview_details)"
+                        class="btn-submits">
+                        Questions
+                    </button> -->
+            </section>
+</div>
