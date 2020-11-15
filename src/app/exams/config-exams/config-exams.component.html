@@ -1,0 +1,20 @@
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="text-top">
+            <h3> <b>List of Exams</b></h3>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <button (click)="createExam($event, 'create')"
+        mat-raised-button class="new_question btn-action pull-right"> <span class="fa
+            fa-plus"></span> Exam</button>
+    </div>
+    <div class="col-md-12">
+        <div class="mat-elevation-z8">
+            <ng2-smart-table [settings]="settings" [source]="exams"
+                (custom)="onCustomAction($event)"></ng2-smart-table>
+        </div>
+    </div>
+</div>

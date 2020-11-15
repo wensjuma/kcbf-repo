@@ -1,0 +1,38 @@
+<div class="container">
+    <h4 class="title"><small><b>{{quiz.data.question}}</b></small></h4>
+    <h5><small title="Click on individual option to edit">Options:</small></h5>
+    <mat-radio-group  *ngIf="quiz.data.options" aria-label="Existing options">
+        <mat-radio-button *ngFor ="let quiz of quiz.data.options" (change)="editOptions(quiz)" value="">{{quiz.option_text}}</mat-radio-button>
+        <!-- <button class="btn-actions btn-sm btn btn-info pull-right" ><i class="fa fa-pencil-square text-light"></i> Edit options</button> -->
+      </mat-radio-group> 
+    
+    <hr>
+        <form class="form" [formGroup]="form">
+            <div class="form-group">
+
+                <textarea type="text" placeholder="Enter Option label/text"
+                    class="form-control" formControlName="option_text"></textarea>
+               
+            </div>
+
+            <div class="form-group">
+                <input type="number" placeholder="Enter option order"
+                    class="form-control" formControlName="order"
+                    required>
+                
+            </div>
+           
+            <div class="form-group">
+
+                <input type="number" placeholder="Enter option score"
+                    class="form-control" formControlName="score"
+                    required>
+               
+            </div>
+          
+        </form>
+        <hr>
+        <button mat-raised-button (click)="close()" class="btn-default cancel">CANCEL</button>
+        <button mat-raised-button (click) ="onSubmit()" class="
+            btn-default submit pull-right btn-submits">SUBMIT</button>
+</div>
