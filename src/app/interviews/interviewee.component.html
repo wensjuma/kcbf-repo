@@ -48,6 +48,11 @@
                             </div>
                             <div class="col-md-2"></div>
                             <div class="col-md-6">
+                                <!-- <div *ngFor='let item of question.options;let i = index'>                    
+                                    <input type="radio" [checked]="item.selected" (change)='radioChecked(item.optionId,i)' > 
+                                     <input type="text" value='{{item.score}}'/>  
+                                     {{item.option_text}}         
+                                  </div>  -->
                                 <form [formGroup]="form">
                                     <label *ngFor="let option of
                                         question.options;">
@@ -56,9 +61,22 @@
                                             (change)="getValue(option,question)"
                                             type="radio"
                                             name="responseOption"
+                                            [checked]="option.selected"
                                             value="{{option.score}}" />
                                         {{option.option_text}}
                                     </label>
+                                   
+                                        <!-- <mat-radio-button 
+                                        *ngFor="let option of question.options" 
+                                        formControlName="responseOption"
+                                        (change)="getValue(option,question)"
+                                        type="radio"
+                                        name="responseOption"
+                                        [checked]="option.selected"
+                                         value="{{option.score}}"> 
+                                         {{option.option_text}}
+                                        </mat-radio-button> -->
+                                      
                                 </form>
                             </div>
                             <div class="col-md-2">

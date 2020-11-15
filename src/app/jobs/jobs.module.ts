@@ -7,10 +7,12 @@ import { SharedModule } from '../shared/shared.module';
 import { ViewComponent } from './jobs-list/view/view.component';
 import { ListApplicantsComponent } from './jobs-list/view/list-applicants/list-applicants.component';
 import { ViewApplicantComponent } from './jobs-list/view/list-applicants/view-applicant/view-applicant.component';
+import { AcceptedApplicationsComponent } from './jobs-list/view/list-applicants/accepted-applications/accepted-applications.component';
+import { RejectedApplicationsComponent } from './jobs-list/view/list-applicants/rejected-applications/rejected-applications.component';
 
 
 @NgModule({
-  declarations: [JobsListComponent, ViewComponent, ListApplicantsComponent, ViewApplicantComponent],
+  declarations: [JobsListComponent, ViewComponent, ListApplicantsComponent, ViewApplicantComponent, AcceptedApplicationsComponent, RejectedApplicationsComponent],
   imports: [
     CommonModule,
     SharedModule,

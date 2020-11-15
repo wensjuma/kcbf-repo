@@ -1,38 +1,81 @@
-<form action="">
-    <div class="card-form">
-        <b> Applicant Details
-            <button class="pull-right" mat-raised-button (click)="back()"> <span class="fa fa-arrow-left"></span>
-                Back</button>
+<div class="row">
+    
+    <div class="col-md-6">
+        <b class="applicant_title"> Applicant Details
+           
         </b>
-        
+    </div>
+    <div class="col-md-6">
+        <button class="pull-right" mat-raised-button (click)="back()"> <span class="fa fa-arrow-left"></span>
+            Back</button>
+    </div>
+</div>
+
+<form action="">
+    <div class="card-form"> 
         <div class="row">
-            <div *ngIf="applicant_details" class="section col-6">
+            <div *ngIf="applicant_details" class="section edu-details col-6">
                 <span *ngIf="applicant_details.accepted"  class="badge-success badge"><i class="fa fa-check-circle"></i> Application accepted</span>
                 <h4><small class="text-success">{{applicant_details.first_name}} {{applicant_details.middle_name}}
                         {{applicant_details.surname}}</small></h4>
-                <small><b>Email </b>{{applicant_details.email_address}}</small>
-                <hr>
-                <small><b>Id number </b> {{applicant_details.id_number}}</small>
-                <hr>
-                <small><b>Passport number </b> {{applicant_details.passport_number}}</small>
-                <hr>
-                <small><b>Expected salary</b> {{applicant_details.expected_salary}}</small>
-                <hr>
-                <small><b>Postal address</b> {{applicant_details.postal_address}}</small>
-                <hr>
-                <small><b>Date of application</b> {{applicant_details.applied_on | date: 'dd MMM yyyy'}}</small>
-                <hr>
-                <small><b>Residence</b> {{applicant_details.applicant_residence}}</small>
-                <hr>
-                <small><b>Gender</b> {{applicant_details.gender}}</small>
-                <hr>
+                <small><b>Email </b><span class="pull-right">{{applicant_details.email_address}}</span></small>
                 <br>
+                <small><b>Id number </b><span class="pull-right">{{applicant_details.id_number}}</span> </small>
                 <br>
-                <button *ngIf="!applicant_details.accepted" (click)="acceptApplication(applicant_details)"
-        class="btn-success btn-block btn btn-sm">Accept</button>
+                <small><b>Passport number </b> <span class="pull-right">{{applicant_details.passport_number}}</span> </small>
+                <br>
+                <small><b>Expected salary</b> <span class="pull-right">{{applicant_details.expected_salary}}</span> </small>
+                <br>
+                <small><b>Postal address</b> <span class="pull-right">{{applicant_details.postal_address}}</span> </small>
+               <br>
+                <small><b>Date of application</b> <span class="pull-right">{{applicant_details.applied_on | date: 'dd MMM yyyy'}}</span> </small>
+              <br>
+                <small><b>Residence</b> <span class="pull-right">{{applicant_details.applicant_residence}}</span> </small>
+                <br>
+                <small><b>Gender</b>
+                     <span *ngIf="applicant_details.gender === 'M'" class="pull-right">Male</span> 
+                     <span *ngIf="applicant_details.gender === 'F'" class="pull-right">Female</span> 
+                    </small>
+                   <hr>
+                   <h5><small>ATTACHED CV</small></h5>
+                   <div class="row">
+                       <div class="col-md-12">
+                           <div  class="card documents">
+                               <img width="80px" src="assets/document.png">
+                               <small>
+                                   <i class="fab fa-pdf"></i> {{applicant_info.upload.file_name}}
+                               </small>
+                               <hr>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                   <button title="Open file" (click)="downloadFile(applicant_info.upload.file_name)" class="btn btn-info btn-block btn-sm pull-left"><i class="fa fa-folder-open-o "></i> </button>
+                                  </div>
+                                  <div class="col-md-6">
+                                   <button title="Download file" (click)="downloadFile(applicant_info.upload.file_name)" class="btn btn-block btn-success btn-sm pull-right"><i class="fa fa-download"></i> </button>
+                                  </div>
+                              </div>
+                           </div>
+                       </div>
+                   </div>
+             
                 </div>
             <div class="col-6">
                 <br>
+                <br>
+                <h5><small>EDUCATION DETAILS</small></h5>
+                <form class="edu-details">
+                    
+                    <section *ngFor="let education of education_history" class="card-education">
+                        <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
+                        <small><b>{{education.institution_name}} </b> </small><br>
+                        <small> {{education.end_date | date: 'MM/yyyy'}} -
+                            {{education.end_date  | date: 'MM/yyyy'}}</small> <br>
+                        <br>
+                        <small>{{education.description}} </small>
+                        <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
+                    </section>
+                </form>
+                <hr>
                 <h5><small>WORK EXPERIENCE</small></h5>
                 
                 <form class="edu-details">
@@ -48,53 +91,40 @@
                     </section>
                 </form>
                 <hr>
-                <h5><small>EDUCATION DETAILS</small></h5>
-                <form class="edu-details">
-                    
-                    <section *ngFor="let education of education_history" class="card-education">
-                        <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
-                        <small><b>{{education.institution_name}} </b> </small><br>
-                        <small> {{education.end_date | date: 'MM/yyyy'}} -
-                            {{education.end_date  | date: 'MM/yyyy'}}</small> <br>
-                        <br>
-                        <small>{{education.description}} </small>
-                        <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
-                    </section>
-                </form>
-                <hr>
-                <h5><small>DOCUMENTS</small></h5>
-                <form class="edu-details"> 
-                    <div  *ngFor="let upload of uploaded_file" class="card col-6">
-                        <img width="80px" src="assets/document.png" alt="">
+ 
+               
+                <h5><small>OTHER DOCUMENTS</small></h5>
+               <div class="row">
+                <form class="col-md-12" *ngFor="let upload of uploaded_file"> 
+                    <div  class="card documents">
+                        <img width="80px" src="assets/document.png">
                         <small>
                             <i class="fab fa-pdf"></i> {{upload.file.file_name}}
                         </small>
                         <hr>
                        <div class="row">
                            <div class="col-md-6">
-                            <button title="Open file" (click)="openFile(upload)" class="btn btn-info btn-block btn-sm pull-left"><i class="fa fa-folder-open-o "></i> </button>
+                            <button title="Open file" (click)="downloadFile(upload.file.file_name)" class="btn btn-info btn-block btn-sm pull-left"><i class="fa fa-folder-open-o "></i> </button>
                            </div>
                            <div class="col-md-6">
-                            <button title="Download file" (click)="downloadFile(upload)" class="btn btn-block btn-success btn-sm pull-right"><i class="fa fa-download"></i> </button>
+                            <button title="Download file" (click)="downloadFile(upload.file.file_name)" class="btn btn-block btn-success btn-sm pull-right"><i class="fa fa-download"></i> </button>
                            </div>
                        </div>
                     </div>
                 </form>
+               </div>
             </div>
         </div>
-
-
-
     </div>
 </form>
-
-<form class="job-experience">
-
-
+<br>
+<div class="row job-experience" *ngIf="applicant_details">
     <div class="col-12">
-        <br>
-       
-        <br> <br>
+        <button *ngIf="applicant_details.status === 0 || applicant_details.status ===2" (click)="acceptApplication(applicant_details)"
+        class="btn-success pull-right btn-inn btn btn-sm">Accept Application</button>
+                <button *ngIf="applicant_details.status === 0 || applicant_details.status ===1" (click)="rejectApplication(applicant_details)"
+        class="btn-warning pull-left btn btn-sm text-light">Reject Application</button>
     </div>
-</form>
+</div>
+<br> <br>
 

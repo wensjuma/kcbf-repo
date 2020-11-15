@@ -21,11 +21,6 @@ export class ListMyInterviewsComponent implements OnInit {
       delete: false,
       custom: [
         {
-          name: "editrecord",
-          title:
-            '<span class="btn btn-sm btn-info"><i class="fa fa-pencil-square"></i></span>&nbsp;',
-        },
-        {
           name: "viewrecord",
           title:
             '&nbsp;<span class="btn btn-sm btn-success">More Action</span>',
@@ -59,7 +54,7 @@ export class ListMyInterviewsComponent implements OnInit {
         title: "Description",
         type: "string",
         filter: false,
-        width: "170px",
+        width: "200px",
       },
       location_name: {
         title: "Room",
@@ -82,7 +77,7 @@ export class ListMyInterviewsComponent implements OnInit {
           const raw = new Date(date);
           const formatted = this.datePipe.transform(
             raw,
-            "dd MMM yyyy HH:mm:ss"
+            "dd MMM yyyy HH:mm"
           );
           return formatted;
         },

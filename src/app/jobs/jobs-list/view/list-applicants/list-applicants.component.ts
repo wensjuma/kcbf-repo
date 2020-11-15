@@ -78,35 +78,7 @@ export class ListApplicantsComponent implements OnInit {
           return formatted;
         }, 
       },
-      // accepted: false
-      // applicant_residence: "nairobi"
-      // application_id: 1335
-      // applied_on: "2020-11-03T11:23:57.999"
-      // email_address: "wensjuma@gmail.com"
-      // expected_salary: 45000
-      // first_name: "Wenslaus"
-      // gender: "M"
-      // id_number: "23456789"
-      // job_id: 1176
-      // middle_name: "Juma"
-      // owner: "muriuki@gmail.com"
-      // passport_number: "450000"
-      // phone_number: "254740435363"
-      // postal_address: "nairobi"
-      // postal_code: "50012"
-      // salutation: "Mr"
-      // surname: "Juma"
-      // upload: {file_n
-      // job_type: {
-      //   title: 'Type',
-      //   type: 'string',
-      //   filter: false
-      // },
-      // description: {
-      //   title: 'Description',
-      //   type: 'string',
-      //   filter: false
-      // },
+     
      
     },
     attr:{
@@ -136,14 +108,14 @@ export class ListApplicantsComponent implements OnInit {
     this.loadApplicants()
   }
   loadApplicants(){
-    this.subs = this.httpService.get(`application/${this.job_id}/applications`).subscribe(res=>{
+    this.subs = this.httpService.get(`application/${this.job_id}/applications?status=0`).subscribe(res=>{
       this.applicants = res['data']
       console.log(this.applicants);  
      })
   }
   viewApplicant(data: any, event) {    
     console.log(data);
-    
+    sessionStorage.setItem('applicant_info', JSON.stringify(data))
     this.router.navigate([`/main/jobs/new/${this.job_details.listing_id}/applicant/`, data.application_id])
   }
   onCustomAction(event: any) {

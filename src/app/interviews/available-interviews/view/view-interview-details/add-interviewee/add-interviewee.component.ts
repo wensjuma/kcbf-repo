@@ -20,6 +20,7 @@ export class AddIntervieweeComponent implements OnInit {
   msg = "";
   selectedFile: any;
   file: File;
+  imageURL: string;
   constructor(
     private _fb: FormBuilder,
     private httpService: HttpService,
@@ -36,13 +37,36 @@ export class AddIntervieweeComponent implements OnInit {
       phone_number: ["", Validators.required],
       email_address: ["", Validators.required],
       bio: ["", Validators.required],
-      description: ["", Validators.required]
-      // profile_image: [null],
+      description: ["", Validators.required],
+       profile_image: [null],
     });
   }
   selectedOption(user) {
     console.log(user);
   }
+  public imagePath;
+  imgURL: any;
+  public message: string;
+ 
+  // Image Preview
+  showPreview(event) {
+   this.selectedFile = (event.target as HTMLInputElement).files[0];
+    // console.log(file);
+    
+    this.createFormGroup.patchValue({
+      avatar: this.selectedFile
+    });
+    this.createFormGroup.get('profile_image').updateValueAndValidity()
+    // File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageURL = reader.result as string;
+    }
+    reader.readAsDataURL(this.selectedFile)
+  }
+  // selectFile(event: any) {
+  //   this.selectFile = event.target.files[0]
+  // }
   // uploadFile(event) {
   //   this.file = (event.target as HTMLInputElement).files[0];
   // }

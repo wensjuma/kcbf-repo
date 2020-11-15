@@ -10,14 +10,12 @@
                    <br>
                  <b class="response-text text-success">{{response.option_text}}</b>
                 <span class="pull-right text-success">Score <b class="response-results">{{response.score}}
-                    <i (click)="editResponse(response)" class="fa fa-pencil text-info"></i>
+                    <!-- <i (click)="editResponse(response)" class="fa fa-pencil text-info"></i> -->
                 </b></span>
-               
                 <hr>
                </span>
-              
             </p>
-           
+            <button (click) = "backToInterview()" mat-raised-button class="pull-left btn-submit">Back</button>
             <button (click) = "endActualInterview()" mat-raised-button class="pull-right btn-submits">Submit</button>
         </div>
         <div class="col-md-1"></div>

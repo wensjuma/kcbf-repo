@@ -1,48 +1,25 @@
 <div class="container">
   <h3 class="title">
     <small><b>Add interviewee details</b></small>
-    <button mat-raised-button class="pull-rights pull-right"
-      (click)="uploadUsers()">Upload users to this interview</button>
+    <!-- <button mat-raised-button class="pull-rights pull-right" (click)="uploadUsers()">Upload users to this
+      interview</button> -->
   </h3>
   <hr />
-  <form class="form" [formGroup]="createFormGroup"
-    (ngSubmit)="onSubmit(createFormGroup.value)" novalidate>
+  <form class="form" [formGroup]="createFormGroup" (ngSubmit)="onSubmit(createFormGroup.value)" novalidate>
     <div class="row">
       <div class="col-md-4">
         <div class="form-group">
-          <!-- <select
-            type="email"
-            placeholder="Email Address"
-            class="form-control"
-            formControlName="email"
-            (change)="selectedOption($event.target.value)"
-          >
-          <option value="">--Select User--</option>
-          <option  *ngFor="let user of users" value="{{user.id}}">{{user.email_address}}</option>
-        </select> -->
-          <input
-            type="email"
-            placeholder="Email address"
-            class="form-control"
-            formControlName="email_address"
-            required
-            />
-          <small class="text-danger"
-            *ngIf="createFormGroup.get('email_address').touched &&
+         
+          <input type="email" placeholder="Email address" class="form-control" formControlName="email_address"
+            required />
+          <small class="text-danger" *ngIf="createFormGroup.get('email_address').touched &&
             createFormGroup.get('email_address').hasError('required')">email
             is
             required</small>
         </div>
         <div class="form-group">
-          <input
-            type="text"
-            placeholder="First name"
-            class="form-control"
-            formControlName="first_name"
-            required
-            />
-            <small class="text-danger"
-            *ngIf="createFormGroup.get('first_name').touched &&
+          <input type="text" placeholder="First name" class="form-control" formControlName="first_name" required />
+          <small class="text-danger" *ngIf="createFormGroup.get('first_name').touched &&
             createFormGroup.get('first_name').hasError('required')">firstname
             is
             required</small>
@@ -51,30 +28,16 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <input
-            type="text"
-            placeholder="Middle name"
-            class="form-control"
-            formControlName="middle_name"
-            required
-            />
-            <small class="text-danger"
-            *ngIf="createFormGroup.get('middle_name').touched &&
+          <input type="text" placeholder="Middle name" class="form-control" formControlName="middle_name" required />
+          <small class="text-danger" *ngIf="createFormGroup.get('middle_name').touched &&
             createFormGroup.get('middle_name').hasError('required')">middlename
             is
             required</small>
         </div>
         <div class="form-group">
 
-          <input
-            type="text"
-            placeholder="Phone Number"
-            class="form-control"
-            formControlName="phone_number"
-            required
-            />
-            <small class="text-danger"
-            *ngIf="createFormGroup.get('phone_number').touched &&
+          <input type="text" placeholder="Phone Number" class="form-control" formControlName="phone_number" required />
+          <small class="text-danger" *ngIf="createFormGroup.get('phone_number').touched &&
             createFormGroup.get('phone_number').hasError('required')">phone number
             is
             required</small>
@@ -83,15 +46,8 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <input
-            type="text"
-            placeholder="Last name"
-            class="form-control"
-            formControlName="last_name"
-            required
-            />
-            <small class="text-danger"
-            *ngIf="createFormGroup.get('last_name').touched &&
+          <input type="text" placeholder="Last name" class="form-control" formControlName="last_name" required />
+          <small class="text-danger" *ngIf="createFormGroup.get('last_name').touched &&
             createFormGroup.get('last_name').hasError('required')">Lastname
             is
             required</small>
@@ -99,50 +55,39 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <textarea
-            type="text"
-            placeholder="Provide their bio(Optional)"
-            class="form-control"
+          <textarea type="text" placeholder="Provide their bio(Optional)" class="form-control"
             formControlName="bio"></textarea>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <textarea
-            type="text"
-            placeholder="Description (Optional)"
-            class="form-control"
+          <textarea type="text" placeholder="Description (Optional)" class="form-control"
             formControlName="description"></textarea>
         </div>
       </div>
       <div class="col-md-12">
-        <div style="text-align:center">
-          <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
-          <div><img width="150" height="100" [src]="url" *ngIf="url"></div>
-          <p>
-            <button type="button" mat-raised-button class="btn-default"
-              (click)="fileInput.click()">
-              <span>Add picture</span>
-              <input #fileInput type="file" (change)="selectFile($event)"
-                hidden>
-            </button>
-          </p>
+       
+        <span style="color:red;" *ngIf="message">{{message}}</span>
+        <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+          <img [src]="imageURL" class="preview-img" width="200">
         </div>
+        <button type="button" mat-raised-button class="btn-default btn-sm btn-block"
+        (click)="fileInput.click()">
+        <span>Add picture</span>
+        <input #fileInput type="file" hidden accept="image/*" (change)="showPreview($event)" />
+
+        <!-- Image Preview -->
+     
+      </button>
       </div>
     </div>
     <hr />
     <div class="row">
       <div class="col-md-12">
-        <button
-          mat-raised-button
-          (click)="close()" type="button"
-          class="btn-default">
+        <button mat-raised-button (click)="close()" type="button" class="btn-default">
           Cancel
         </button>
-        <button
-          mat-raised-button
-          color="primary"
-          class="pull-right btn-submits submit">
+        <button mat-raised-button color="primary" class="pull-right btn-submits submit">
           Submit
         </button>
       </div>

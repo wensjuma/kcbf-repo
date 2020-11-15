@@ -13,7 +13,6 @@ import { CountdownComponent } from "ngx-countdown";
 
 import { HttpService } from "../common/services/http.service";
 import { CreatePanelistDialogComponent } from "../panelists/create-panelist-dialog/create-panelist-dialog.component";
-import { ResultsDialogComponent } from "./questionnaire/results-dialog/results-dialog.component";
 
 @Component({
   selector: "app-interviewee",
@@ -46,7 +45,8 @@ export class IntervieweeComponent implements OnInit {
   form: FormGroup;
   timeout: boolean;
   total_score_array: number[];
-  // score_totals: number[];
+  responses: any[] 
+  _responses: any
   constructor(
     private _formBuilder: FormBuilder,
     private httpService: HttpService,
@@ -54,16 +54,29 @@ export class IntervieweeComponent implements OnInit {
     private _elementRef: ElementRef,
     private router: Router
   ) {
+    this.responses =[]
     this.interview_details = JSON.parse(
       sessionStorage.getItem("interview_more")
     )
-    this.form = this._formBuilder.group({
+    this._responses = JSON.parse(
+      sessionStorage.getItem("responses")
+    )
+    // console.log(this._responses);
+    // this._responses.map(res=>{
+       this.form = this._formBuilder.group({
       responseOption: new FormControl(null, [Validators.required]),
-    });
+  
+    })
+   
+    // this.form = this._formBuilder.group({});
+    // this.questionss.forEach(question => {
+    //   this.form.addControl(question.name, this._formBuilder.control(null, Validators.required));
+    // })
     this.timeData= this.interview_details.session_length_min * 60
     this.score_array = [];
     this.total_score_array = [];
   }
+
   ngOnChanges() {
   
     if (this.timeData <= 1000) {
@@ -75,17 +88,21 @@ export class IntervieweeComponent implements OnInit {
       sessionStorage.getItem("startinterview_data")
     );
     this.httpService
-      .get(`questions/interview/${this.interview_details.interview_id}`)
-      .subscribe((res) => {
-        
+      .get(`interview/${this.interview_details.interview_id}/questions`)
+      .subscribe((res) => {     
         this.questions = res.data;
         // this.options = res.data.map((res) => res.options);
       });
   }
   getValue(evt, data) {
-    console.log(data);
-    console.log(evt);
-    data.answered = true;
+    data.options.forEach(item => {
+      if (item.optionId !== evt.optionId) {
+        item.selected = false;
+      } else {
+        item.selected = true;
+      }
+    }) 
+    data.answered = true
     data.scored = evt.score;
     this.option_result = evt.score;
     this.data_result = evt.score;
@@ -95,7 +112,12 @@ export class IntervieweeComponent implements OnInit {
       notes: "Test notes",
       score: evt.score,
     };
-
+    // console.log(model);
+    this.responses.push(data)
+    sessionStorage.setItem(
+      "responses",
+      JSON.stringify(this.responses)
+    );
     this.httpService
       .put(
         `interviewee/${this.start_interview_details.intervieweeId}/score/${this.interview_details.interview_id}`,
@@ -103,11 +125,17 @@ export class IntervieweeComponent implements OnInit {
       )
       .subscribe((res) => {
         const store_res = evt;  
-         console.log(res) 
+        // store responses incase you want to edit 
+        res['data'].selected = true
+        this.responses.push(res['data'])
+        sessionStorage.setItem(
+          "responses",
+          JSON.stringify(this.responses)
+        );
         store_res["question"] = data.question;
         this.score_array.push(store_res);
         this.total_score_array.push(res.data.score);
-        sessionStorage.setItem(
+        localStorage.setItem(
           "store_response",
           JSON.stringify(this.score_array)
         );
@@ -125,9 +153,21 @@ export class IntervieweeComponent implements OnInit {
     this.loadInterviewQuestions();
     this.interviewDetails = JSON.parse(
       sessionStorage.getItem("interview-details")
-    );
+    ); 
     this.interviewee = JSON.parse(sessionStorage.getItem("interviewee"));
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() { }
+  
+  radioChecked(id, i){
+    this.responses.forEach(item=>{
+      if(item.optionId !== id){ 
+         item.selected = false;
+      }else{
+        item.selected = true;
+        console.log(this.responses);
+        
+      } 
+    })
+  }
 }

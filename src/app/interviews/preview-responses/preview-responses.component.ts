@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { HttpService } from 'src/app/common/services/http.service';
-import { ResultsDialogComponent } from '../questionnaire/results-dialog/results-dialog.component';
+
+import { Router } from '@angular/router';
+import { ResultsDialogComponent } from 'src/app/exams/view-exam/questionnaire/results-dialog/results-dialog.component';
 
 @Component({
   selector: 'app-preview-responses',
@@ -18,9 +20,10 @@ export class PreviewResponsesComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private  httpService: HttpService
+    private httpService: HttpService,
+    private  router: Router
   ) { 
-    this.stored_response = JSON.parse(sessionStorage.getItem('store_response'))
+    this.stored_response = JSON.parse(localStorage.getItem('store_response'))
     console.log(this.stored_response);
     this.interview_details = JSON.parse(
       sessionStorage.getItem("interview_more")
@@ -46,8 +49,10 @@ export class PreviewResponsesComponent implements OnInit {
     });
   }
   editResponse(response) {
-    console.log(response);
-    
+   this.router.navigate(['main/interviews/interviewee'])
+  }
+  backToInterview() {
+   this.router.navigate(['main/interviews/interviewee'])
   }
   endActualInterview() {
     const model = {
@@ -67,8 +72,6 @@ export class PreviewResponsesComponent implements OnInit {
         if (result["responseCode"] === "00") {
           sessionStorage.setItem("outcome", JSON.stringify(this.outcome));
           this.viewResults(this.outcome);
-          // sessionStorage.setItem("startinterview_data", JSON.stringify(data));
-          // this.router.navigate(['main/interviews/interviewee'])
         }
       });
   }

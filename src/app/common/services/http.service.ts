@@ -63,7 +63,7 @@ export class HttpService {
             );
     }
     getFile(url: string) {
-        return "http://102.133.170.144:30594/kcb-foundation/api/files?url=" + url;
+        return "http://102.133.170.144:30594/kcb-foundation/api/resource/get/" + url;
     }
     getFileName(filename: any) {
         return filename

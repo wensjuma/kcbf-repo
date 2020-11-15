@@ -100,9 +100,10 @@ export class AvailableInterviewsComponent implements OnInit {
     },
     pager: {
       display: true,
-      perPage: 20,
+      perPage: 50,
     },
   };
+  get_interview: any;
   constructor(
     private httpService: HttpService,
     private router: Router,
@@ -114,14 +115,9 @@ export class AvailableInterviewsComponent implements OnInit {
   ngOnInit() {
     // if (this.authService.currentUser.sub === "m2@gmail.com") {
       this.loadInterviews();
-    // } else {
-    //   this.loadPanelistInterviews();
-    // }
-
-    // this.loadInterviews();
   }
   loadInterviews() {
-    this.httpService.get("interview").subscribe((result) => {
+    this.httpService.get("interview?page=0&size=50").subscribe((result) => {
       this.interviews = result["data"]; //? result["data"].reverse():'';
       console.log(this.interviews);
       
@@ -138,9 +134,18 @@ export class AvailableInterviewsComponent implements OnInit {
   ngOnDestroy(): void {
     this.subs.unsubscribe();
   }
+  getInterviewById() {
+   
+  }
   viewMore(data: any) {
-    // console.log(data);    
-    // sessionStorage.setItem("interview_more", JSON.stringify(data));
+    console.log(data);
+    
+    this.httpService.get(`interview/${data.interview_id}`).subscribe((result) => {
+      console.log(result);
+      this.get_interview = result["data"];
+      console.log(this.get_interview);
+      sessionStorage.setItem("interview_job", JSON.stringify(this.get_interview));
+   });
     sessionStorage.setItem("interview_more", JSON.stringify(data));
     this.router.navigate(["main/interviews/interview", data.interview_id]);
   }
@@ -148,10 +153,11 @@ export class AvailableInterviewsComponent implements OnInit {
     const dialogRef = this.dialog.open(InterviewDetailsComponent, {
       data: {
         data: data,
+        job: this.get_interview,
         mode: mode,
       },
       width: "700px",
-      disableClose: true,
+      // disableClose: true,
     });
     dialogRef.afterClosed().subscribe((res) => {
       this.loadInterviews();

@@ -23,20 +23,17 @@ export class PreInterviewPageComponent implements OnInit {
     console.log(this.interviewee_details);
     // startinterview_data
    }
-
   ngOnInit() {
   }
   startActualInterview(){
     const model={
       interview_score: 0,
       interview_id: this.interview_details.interview_id,
-      recommendation: "Started interview",
-    }
-    
+      recommendation: "Started interview"
+    } 
     this.httpService
     .put(`interviewee/${this.interviewee_details.intervieweeId}/start/${this.interview_details.interview_id}`, model)
-      .subscribe((result) => {
-       
+      .subscribe((result) => {   
         this.start_interview = result["data"];
         console.log(this.start_interview);
         if(result['responseCode'] === '00'){
@@ -51,6 +48,4 @@ export class PreInterviewPageComponent implements OnInit {
         }
       });
   }
-  
-
 }

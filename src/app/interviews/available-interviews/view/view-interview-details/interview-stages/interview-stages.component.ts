@@ -24,11 +24,11 @@ export class InterviewStagesComponent implements OnInit {
       edit: false,
       delete: false,
       custom: [
-        {
-          name: "viewRecord",
-          title:
-            '<i title="Manage questions in stage" class="fa fa-eye btn btn-sm btn-success fa-1x text-light"> questions</i> &nbsp;&nbsp;',
-        },
+        // {
+        //   name: "viewRecord",
+        //   title:
+        //     '<i title="Manage questions in stage" class="fa fa-eye btn btn-sm btn-success fa-1x text-light"> questions</i> &nbsp;&nbsp;',
+        // },
         {
           name: "editRecord",
           title:

@@ -11,8 +11,6 @@ import { IntervieweeComponent } from "./interviewee.component";
 import { ListIntervieweeComponent } from "./list-interviewee/list-interviewee.component";
 import { PreInterviewPageComponent } from './pre-interview-page/pre-interview-page.component';
 import { PreviewResponsesComponent } from './preview-responses/preview-responses.component';
-import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
-
 
 const routes: Routes = [
 
@@ -24,10 +22,10 @@ const routes: Routes = [
     path: "preview",
     component: PreviewResponsesComponent,
   },
-  {
-    path: "questionnaire",
-    component: QuestionnaireComponent,
-  },
+  // {
+  //   path: "questionnaire",
+  //   component: QuestionnaireComponent,
+  // },
   {
     path: "interviewees",
     component: ListIntervieweeComponent,

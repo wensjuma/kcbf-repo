@@ -16,10 +16,19 @@
                 required></textarea>
         </div>
         <div class="form-group">
+            <select type="text" placeholder="Select stage exam"
+                class="form-control" formControlName="exam_id"
+                required>
+                <option [ngValue]="null">--Select option--</option>
+                <option *ngFor="let exam of exams" [ngValue]="exam.exam_id">{{exam.exam_name}}</option>
+               
+            </select>
+        </div>
+        <div class="form-group">
             <select type="text" placeholder="Is stage final?"
                 class="form-control" formControlName="is_stage_last"
                 required>
-                <option [ngValue]="null" selected>--Is stage final?--</option>
+                <option [ngValue]="null" >--Is stage final?--</option>
                 <option [ngValue]="false">No</option>
                 <option [ngValue]="true">Yes</option>
             </select>

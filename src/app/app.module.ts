@@ -69,6 +69,7 @@ import { NgxMatDateAdapter, NgxMatDatetimePickerModule, NgxMatNativeDateModule, 
 import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
 // import { MatMarkdownEditorModule } from 'mat-markdown-editor';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
+import { QuestionnaireComponent } from './exams/view-exam/questionnaire/questionnaire.component';
 export const MY_FORMATS = {
   parse: {
     dateInput: 'LL',
@@ -91,7 +92,7 @@ export const MY_FORMATS = {
     ListPanelistsComponent,
     NotificationDialogComponent,
     CreatePanelistDialogComponent,
-    InterviewResultsComponent 
+    InterviewResultsComponent
   ],
   imports: [
     // CommonModule,

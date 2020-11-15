@@ -16,14 +16,12 @@ import { ViewInterviewDetailsComponent } from './available-interviews/view/view-
 import { ViewPanelistDialogComponent } from './available-interviews/view/view-interview-details/view-panelist-dialog/view-panelist-dialog.component';
 import { AddIntervieweeComponent } from './available-interviews/view/view-interview-details/add-interviewee/add-interviewee.component';
 import { QuestionsDialogComponent } from './available-interviews/view/questions-dialog/questions-dialog.component';
-import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
-import { AddQuizOptionComponent } from './questionnaire/add-quiz-option/add-quiz-option.component';
-import { AddNewQuizComponent } from './questionnaire/add-new-quiz/add-new-quiz.component';
-import { ResultsDialogComponent } from './questionnaire/results-dialog/results-dialog.component';
+
+
 import { ViewComponent } from './available-interviews/view/view.component';
 import { ListPanelistsTabComponent } from './available-interviews/view/view-interview-details/list-panelists-tab/list-panelists-tab.component';
 import { ListIntervieweesTabComponent } from './available-interviews/view/view-interview-details/list-interviewees-tab/list-interviewees-tab.component';
-import { PreInterviewPageComponent } from './pre-interview-page/pre-interview-page.component';
+
 import { CountdownGlobalConfig, CountdownModule } from 'ngx-countdown';
 import { PreviewResponsesComponent } from './preview-responses/preview-responses.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
@@ -32,6 +30,7 @@ import { PanelistAwardsComponent } from './available-interviews/view/view-interv
 import { AddEditStageComponent } from './available-interviews/view/view-interview-details/interview-stages/add-edit-stage/add-edit-stage.component';
 import { JobListingComponent } from './available-interviews/view/view-interview-details/job-listing/job-listing.component';
 import { StepIntervieweesComponent } from './available-interviews/view/view-interview-details/interview-stages/step-interviewees/step-interviewees.component';
+import { PreInterviewPageComponent } from './pre-interview-page/pre-interview-page.component';
 // import { MatMarkdownEditorModule } from 'mat-markdown-editor';
 // import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 
@@ -52,10 +51,8 @@ import { StepIntervieweesComponent } from './available-interviews/view/view-inte
     ViewInterviewDetailsComponent,
     ViewPanelistDialogComponent,
     QuestionsDialogComponent,
-    QuestionnaireComponent,
-    AddQuizOptionComponent,
-    AddNewQuizComponent,
-    ResultsDialogComponent,
+
+   
     ViewComponent,
     ListPanelistsTabComponent,
     ListIntervieweesTabComponent,
@@ -88,9 +85,8 @@ import { StepIntervieweesComponent } from './available-interviews/view/view-inte
     ViewPanelistDialogComponent,
     AddIntervieweeComponent,
     QuestionsDialogComponent,
-    AddQuizOptionComponent,
-    AddNewQuizComponent,
-    ResultsDialogComponent,
+   
+
     PanelistAwardsComponent,
     InterviewDetailsComponent,
     AddEditStageComponent,

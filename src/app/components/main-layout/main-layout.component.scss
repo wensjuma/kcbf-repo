@@ -72,8 +72,7 @@
     margin-top: 7px;
       color: #1a273b;
       font-size: large !important;
-      font-weight: bolder !important;
-     
+      font-weight: bolder !important;  
   }
   .chev-form{
     margin-left: 76%;
@@ -135,16 +134,14 @@
           font-weight: bold;
           color: #192c43;
           text-decoration: none;
-          font-size: 13pt;
-         
-         
+          font-size: 13pt;        
       }
-  
       li{
         list-style-type: none;
         padding: 14px;
         font-weight: bold;
         color: #192c43;
+        cursor: pointer;
         text-decoration: none;
         font-size: 13pt;
         &:hover{
@@ -289,9 +286,10 @@ a.help-link{
 }
 
 .interview_child, .user_child{
-  text-indent: 10px !important;
+  text-indent: 15px !important;
   padding: 5px;
-  font-size: smaller;
+ 
+  background-color: #a8a9aa !important;
 }
 .settings_child{
   font-size: 13pt;

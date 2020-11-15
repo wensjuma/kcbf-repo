@@ -25,11 +25,11 @@ export class ListIntervieweesTabComponent implements OnInit {
       edit: false,
       delete: false,
       custom: [
-        {
-          name: "viewmoreResults",
-          title:
-            '<span><i title="View results break down" class="fa fa-eye btn btn-info btn-sm text-light"></i></span>',
-        },
+        // {
+        //   name: "viewmoreResults",
+        //   title:
+        //     '<span><i title="View results break down" class="fa fa-eye btn btn-info btn-sm text-light"></i></span>',
+        // },
         {
           name: "startInterview",
           title:

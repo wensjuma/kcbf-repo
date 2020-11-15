@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users/users.component';
 import { ApplicantUsersComponent } from './applicant-users/applicant-users.component';
-import { ViewApplicantComponent } from './applicant-users/view-applicant/view-applicant.component';
 
 
 const routes: Routes = [
@@ -16,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'applicant/:id',
-    component: ViewApplicantComponent
+   // component: ViewApplicantComponent
   }
 ];
 

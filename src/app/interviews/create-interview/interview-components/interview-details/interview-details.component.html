@@ -15,32 +15,7 @@
                                 required</small>
                         </div>
                     </div>
-                    <!-- <div class="input-group mto-date col-md-6">
-                        <input class="form-control" id="date" formControlName="start_date" ngbDatepicker
-                            #s="ngbDatepicker" [value]="">
-                        <div class="input-group-append" (click)="s.toggle()">
-                            <span class="input-group-text start"><i class="fa
-                                    fa-calendar"></i></span>
-                        </div>
-                        <small class="text-danger" *ngIf="form.get('date').touched &&
-                            form.get('date').hasError('required')">Field
-                            is
-                            required</small>
-                    </div> -->
-                    <!-- <div class="input-group mto-date col-md-4">
-                        <input class="form-control" id="end_date"
-                            formControlName="end_date" ngbDatepicker
-                            #e="ngbDatepicker">
-                        <div class="input-group-append" (click)="e.toggle()">
-                            <span class="input-group-text end"><i class="fa
-                                    fa-calendar"></i></span>
-                        </div>
-                        <small class="text-danger"
-                            *ngIf="form.get('date').touched &&
-                            form.get('date').hasError('required')">Field
-                            is
-                            required</small>
-                    </div> -->
+                   
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -71,7 +46,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <mat-form-field>
-                        <mat-label>Select interview date</mat-label>
+                        <mat-label>Select interview date and time</mat-label>
                                     <input matInput [ngxMatDatetimePicker]="picker" placeholder="Interview date" formControlName="start_date"
                           [min]="minDate" [max]="maxDate" [disabled]="disabled">
                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -81,51 +56,32 @@
                                     </ngx-mat-datetime-picker>
                                 </mat-form-field>
                   </div>
-                    <!-- <div class="input-group mto col-md-6">
-                        <label for="">Start date</label>
-                        <br>
-                        <input class="form-control" id="date" formControlName="date" ngbDatepicker #p="ngbDatepicker">
-                        <div class="input-group-append" (click)="p.toggle()">
-                            <span class="input-group-text input-interview-date"><i class="fa
-                                    fa-calendar"></i></span>
-                        </div>
-                        <small class="text-danger" *ngIf="form.get('date').touched &&
-                            form.get('date').hasError('required')">Field
-                            is
-                            required</small>
-                    </div> -->
-                    <!-- <div class="col form-group col-md-6">
-                        <label for="">Time</label>
-                        <ngb-timepicker id="time_int" formControlName="time" [seconds]="seconds"></ngb-timepicker>
-                        <small class="text-danger" *ngIf="form.get('time').touched &&
-                        form.get('time').hasError('required')">Field
-                            is
-                            required</small>
-                    </div> -->
-
                 </div>
-                <!-- <div class="form-group">
-            <label>Description</label>
-            <markdown-editor [control]="descriptionControl"></markdown-editor>
-          </div> -->
                 <div class="form-group">
                     <textarea type="text" placeholder="Description" class="form-control" formControlName="description"
                         required></textarea>
                 </div>
                 <div class="form-group">
-                    <!-- <editor
-                        formControlName="description"
-                        apiKey="6a9arub7iubeai78h89vrzwhup7o315s15uc33h89v7gwkgd"
-                        [init]= 'init'></editor>
-                         -->
-                    <!-- <mat-markdown-editor
-                        [(ngModel)]="description"
-                        [ngModelOptions]="{standalone: true}"
-                        [options]="options"
-                        
-                        maxlength="500"
-                        required> </mat-markdown-editor> -->
-
+                </div>
+                <div class="col-md-12">
+                    <br>
+                    <div class="form-group">
+                        <section class="example-section">
+                            <mat-checkbox color="primary" *ngIf="form.valid && _data.mode" (change)="toggleJobListing($event)"
+                                class="example-margin">Add job listing to this interview ?
+                            </mat-checkbox>
+                            <mat-checkbox color="primary" *ngIf="form.valid && !_data.mode" (change)="toggleJobListingEdit($event)"
+                                class="example-margin">Edit job listing to this interview ?
+                            </mat-checkbox>
+                        </section>
+                    </div>
+                    <!-- <div class="form-group">
+                        <section class="example-section">
+                            <mat-checkbox color="primary" *ngIf="update_submitted" (change)="toggleJobListing($event)"
+                                class="example-margin">Update job listing in this interview ?
+                            </mat-checkbox>
+                        </section>
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -133,33 +89,26 @@
                             class="btn-defaul pull-left">Cancel</button>
                     </div>
                     <div class="col-md-6">
-                        <button mat-raised-button type="submit" *ngIf="!add_listing_option"
+                        <button mat-raised-button type="submit" *ngIf="!add_listing_option && _data.mode"
                             class="btn-default btn-submits pull-right">Submit</button>
+                        <button mat-raised-button type="submit" *ngIf="add_listing_option && _data.mode"
+                            class="btn-default btn-submits pull-right" matStepperNext>Next <i  class="fa fa-arrow-right"></i></button>
+                       
+                        <button mat-raised-button type="button" *ngIf="!_data.mode &&  edit_listing_option"
+                            class="btn-default btn-submits pull-right"  matStepperNext>Update Job <i  class="fa fa-arrow-right"></i></button>
+                            <button mat-raised-button type="submit" *ngIf="!_data.mode && !edit_listing_option"
+                            class="btn-default btn-submits pull-right">Done</button>
                     </div>
-                    <div class="col-md-12">
-                        <br>
-                        <div class="form-group">
-                            <section class="example-section">
-                                <mat-checkbox color="primary" *ngIf="submitted" (change)="toggleJobListing($event)"
-                                    class="example-margin">Add job listing to this interview ?
-                                </mat-checkbox>
-                            </section>
-                        </div>
-                    </div>
+                 
                 </div>
 
 
-                <!-- <button mat-raised-button *ngIf="add_listing_option"
-                    class="btn-default btn-submits pull-right">List a job</button> -->
-                <!-- <button mat-button matStepperPrevious>Back</button> -->
-                <button class="btn-default btn-submits pull-right" type="button" *ngIf="add_listing_option"
-                    mat-raised-button matStepperNext>List
-                    a job</button>
+               
             </form>
         </mat-step>
         <mat-step>
-            <h5><b>Create job</b></h5>
-
+            <h5><b>{{sec_title}}</b></h5>
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
             <form [formGroup]="jobForm">
                 <div class="row">
                     <div class="col-4">
@@ -181,7 +130,7 @@
                         </div>
                         <div class="form-group">
                             <!-- <label for="">Application end date</label> -->
-                            <div class="input-group mto-date application_end_date ">
+                            <!-- <div class="input-group mto-date application_end_date ">
                                 <input class="form-control" id="date" formControlName="application_end_date"
                                     ngbDatepicker #sd="ngbDatepicker">
                                 <div class="input-group-append" (click)="sd.toggle()">
@@ -192,8 +141,13 @@
                                     jobForm.get('application_end_date').hasError('required')">Field
                                     is
                                     required</small>
-                            </div>
-
+                            </div> -->
+                            <mat-form-field>
+                                <mat-label>set application end date</mat-label>
+                                <input [min]="minDate" [max]="maxDate" formControlName="application_end_date" matInput [matDatepicker]="dp3">
+                                <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                                <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+                              </mat-form-field>
                         </div>
                     </div>
                     <div class="col-4">
@@ -278,11 +232,32 @@
                         </div>
 
                     </div>
+                    <div class="col-12">
+                        <div style="text-align:center">
+                            <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+                            <div>
+                                {{url}}
+                                <!-- <img width="150" height="100" [src]="url" *ngIf="url">-->
+                                </div> 
+                            <p>
+                              <button type="button" mat-raised-button class="btn-default"
+                                (click)="fileInput.click()">
+                                <span>Add picture</span>
+                                <input #fileInput type="file" (change)="selectFile($event)"
+                                  hidden>
+                              </button>
+                            </p>
+                          </div>
+
+                    </div>
                 </div>
+                <button mat-raised-button type="button"  (click)="editInterview()"  *ngIf="!_data.mode"
+                class="btn-default btn-submits pull-right">Save changes</button>
             </form>
             <button mat-raised-button matStepperPrevious>Back</button>
-            <button mat-raised-button (click)="submitInterviewJob()" *ngIf="add_listing_option"
+            <button mat-raised-button (click)="submitInterviewJob()" *ngIf="add_listing_option  && _data.mode"
                 class="btn-default btn-submits pull-right">Submit</button>
+            
         </mat-step>
     </mat-horizontal-stepper>
 </div>

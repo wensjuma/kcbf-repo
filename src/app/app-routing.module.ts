@@ -55,6 +55,14 @@ const routes: Routes = [
           ),
       },
       {
+        path: "exams",
+        // canActivate: [AdminGuard],
+        loadChildren: () =>
+          import("./exams/exams.module").then(
+            (m) => m.ExamsModule
+          ),
+      },
+      {
         path: "interviews",
         loadChildren: () =>
           import("./interviews/interviews.module").then(
