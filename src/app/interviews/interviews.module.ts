@@ -93,8 +93,8 @@ import { PreInterviewPageComponent } from './pre-interview-page/pre-interview-pa
     StepIntervieweesComponent
   ],
   providers:[
-    { provide: CountdownGlobalConfig
-    }//, useFactory: countdownConfigFactory }
+    { provide: CountdownGlobalConfig, useValue: undefined } //, useFactory: countdownConfigFactory }
+//, useFactory: countdownConfigFactory }
     
   ]
 })

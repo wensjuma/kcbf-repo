@@ -13,7 +13,7 @@ export class ListIntervieweeComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'email'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  @ViewChild(MatPaginator, {static:false}) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   data: PeriodicElement[];
   public settings = {
     selectMode: 'single',  // single|multi

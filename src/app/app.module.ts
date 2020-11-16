@@ -50,8 +50,8 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 // import { FormlyFieldStepper } from './interviewee/stepper.type';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+ 
 import { NotificationDialogComponent } from './components/main-layout/notification-dialog/notification-dialog.component';
 import { CreateUserComponent } from './user-management/users/create-user/create-user.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -118,7 +118,7 @@ export const MY_FORMATS = {
     // }),
     ReactiveFormsModule,
     FormsModule,
-    AngularFontAwesomeModule,
+    FontAwesomeModule,
     HttpClientModule,
     NgbModule,
     

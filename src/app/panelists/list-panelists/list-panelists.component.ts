@@ -20,7 +20,7 @@ export class ListPanelistsComponent implements OnInit {
   ];
   // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   data: User;
   public settings = {
     selectMode: "single", // single|multi
