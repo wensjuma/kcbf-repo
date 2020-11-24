@@ -25,16 +25,16 @@ export class QuestionnaireComponent implements OnInit {
         {
           name: "editQuiz",
           title:
-            '<i class="fa fa-pencil-square btn btn-sm btn-info fa-1x text-light"></i> &nbsp;&nbsp;',
+            '<i class="fa fa-pencil-square btn btn-sm btn-info fa-1x text-light"></i> &nbsp;&nbsp;'
         },
         {
           name: "addOptions",
           title:
-            '<i title="Create options for this question" class="fa btn btn-sm btn-success">options</i>',
-        },
+            '<i title="Create options for this question" class="fa btn btn-sm btn-success">options</i>'
+        }
         // { name: 'editQuiz', title: '<i class="fa  fa-pencil"></i>' }
       ],
-      position: "right",
+      position: "right"
     },
     rowClassFunction: (row) => {
 
@@ -50,8 +50,10 @@ export class QuestionnaireComponent implements OnInit {
         filter: false,
         width: "40px",
         valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
-        },
+        }
       },
       question: {
         title: "Question",
@@ -63,19 +65,19 @@ export class QuestionnaireComponent implements OnInit {
         title: "Description",
         type: "string",
         filter: false,
-        width: "70px",
+        width: "70px"
       },
       max_score: {
         title: "MaxScore",
         type: "string",
         filter: false,
-        width: "35px",
+        width: "35px"
       },
       type_of_question: {
         title: "Quiz type",
         type: "string",
         filter: false,
-        width: "30px",
+        width: "30px"
       },
     },
     attr: {
@@ -83,8 +85,8 @@ export class QuestionnaireComponent implements OnInit {
     },
     pager: {
       display: true,
-      perPage: 20,
-    },
+      perPage: 20
+    }
   };
   questions; //: Questions
   interview_id: any;
@@ -126,6 +128,7 @@ export class QuestionnaireComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((res) => {
+      res = res;
       this.loadQuestions();
     });
   }
@@ -151,9 +154,10 @@ export class QuestionnaireComponent implements OnInit {
         data: _data,
         mode: mode,
       },
-      width: "500px",
+      width: "500px"
     });
     dialogRef.afterClosed().subscribe((res) => {
+      res = res;
       this.loadQuestions();
     });
   }

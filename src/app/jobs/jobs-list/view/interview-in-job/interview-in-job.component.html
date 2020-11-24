@@ -1,0 +1,37 @@
+<!-- <div class="prod-container"> -->
+    <div class="row" id="ordker-rows">
+        <!-- <div class="col-md-3"></div> -->
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <br>
+                    <div class="text-top">
+                        <h4> <b>Interviews in job</b></h4>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <br>
+                    <button (click)="createInterview($event, 'create')"
+                    mat-raised-button class="new_interview pull-right"> <span class="fa
+                        fa-plus"></span> Interview</button>
+                </div>
+                <div class="col-md-12 right-partition">          
+                  
+                    <div class="mat-elevation-z8">
+                        <ng2-smart-table [settings]="settings" [source]="interviews"
+                            (custom)="onCustomAction($event)"></ng2-smart-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6"></div>
+        <div class="col-md-3">
+            <div id="mybutton">
+              
+            </div>
+        </div>
+    </div> -->
+<!-- </div> -->

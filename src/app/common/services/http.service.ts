@@ -7,10 +7,11 @@ import { map } from "rxjs/operators";
 import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import * as moment from "moment";
 @Injectable({
-    providedIn: "root",
+    providedIn: "root"
 })
 export class HttpService {
     url = this._globalService.apiHost;
+    imgPrefix = "http://102.133.170.144:30594/kcb-foundation/api/resource/get/"
     token: string;
     constructor(
         private http: HttpClient,
@@ -35,7 +36,7 @@ export class HttpService {
     }
     private getHeadersWithoutBearer(): HttpHeaders {
         return new HttpHeaders({
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
         });
     }
     public login(endpoint: any, model: any): any {
@@ -113,7 +114,7 @@ export class HttpService {
         return this.http
             .patch(this._globalService.apiHost + endpoint, {},{
                 headers: this.getHeaders(),
-                params: params,
+                params: params
             })
             .pipe(
                 map((response) => {
@@ -127,7 +128,7 @@ export class HttpService {
         return this.http
             .get(this._globalService.apiHost + endpoint, {
                 headers: this.getHeaders(),
-                params: params,
+                params: params
             })
             .pipe(
                 map((response) => {

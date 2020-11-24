@@ -1,0 +1,92 @@
+<div class="container">
+   
+        <h4 class="title"><small><b>{{title}}</b></small></h4>
+        <hr>
+        <form class="form" [formGroup]="form">
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="text" placeholder="Interview name" class="form-control"
+                            formControlName="interview_name" required>
+                        <small class="text-danger" *ngIf="form.get('interview_name').touched &&
+                            form.get('interview_name').hasError('required')">Field
+                            is
+                            required</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select type="text" placeholder="Select location" class="form-control"
+                            formControlName="location_id" required>
+                            <option [value]="null">--Select meeting room--</option>
+                            <option *ngFor="let room of rooms" [value]="room.location_id">
+                                {{room.location_name}}</option>
+                        </select>
+                        <small class="text-danger" *ngIf="form.get('location_id').touched &&
+                            form.get('location_id').hasError('required')">Field
+                            is
+                            required</small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="number" placeholder="Time duration in
+                            minutes" class="form-control" formControlName="session_length" required>
+                        <small class="text-danger" *ngIf="form.get('session_length').touched &&
+                            form.get('session_length').hasError('required')">Field
+                            is
+                            required</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-form-field>
+                        <mat-label>Select interview date and time</mat-label>
+                        <input matInput [ngxMatDatetimePicker]="picker" placeholder="Interview date"
+                            formControlName="start_date" [min]="minDate" [max]="maxDate" readonly>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                            [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                            [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian">
+                        </ngx-mat-datetime-picker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea type="text" placeholder="Description" class="form-control" formControlName="description"
+                    required></textarea>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="col-md-12">
+                <br>
+                <!-- <div class="form-group">
+                    <section class="example-section">
+                        <mat-checkbox color="primary" *ngIf="form.valid && _data.mode"
+                            (change)="toggleJobListing($event)" class="example-margin">Add job listing to this
+                            interview ?
+                        </mat-checkbox>
+                    </section>
+                </div> -->
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button mat-raised-button type="button" (click)='close()'
+                        class="btn-defaul pull-left">Cancel</button>
+                </div>
+                <div class="col-md-6">
+                    <button mat-raised-button type="submit" (click)="createInterview()" *ngIf="_data.mode"
+                        class="btn-default btn-submits pull-right">Submit</button>
+                   
+                    <button mat-raised-button type="submit" (click)="editInterview()" *ngIf="!_data.mode && !valid_interview"
+                        class="btn-default btn-submits pull-right">Save</button>
+                </div>
+            </div>
+
+        </form>
+</div>

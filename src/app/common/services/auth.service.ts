@@ -13,7 +13,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
-  providedIn: "root",
+  providedIn: "root"
 })
 export class AuthService {
   public jwtHelper: JwtHelperService = new JwtHelperService();
@@ -28,28 +28,20 @@ export class AuthService {
     private http: HttpClient,
     public _globalService: GlobalService // private toastrService: ToastrService
   ) {
-    // this.http = new HttpClient(this.handler);
-
     this.isAdmin();
-
     const token = this.getToken;
     if (token) {
       this._currentUser = this.jwtHelper.decodeToken(token);
     }
     this.isAuthenticated();
   }
-  // private getHeaders(): HttpHeaders {
-  //     return new HttpHeaders({
-  //         'Content-Type': 'application/json',
-  //         'Access-Control-Allow-Origin': '*'
-  //     });
-  // }
+
   private static generateHeaders(): { headers: HttpHeaders } {
     return {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      }),
+        "Access-Control-Allow-Origin": "*"
+      })
     };
   }
   public login(endpoint: string, model: any) {
@@ -146,7 +138,7 @@ export class AuthService {
       errorMessage = {
         success: false,
         status: 0,
-        data: "Sorry, there was a connection error occurred. Please try again.",
+        data: "Sorry, there was a connection error occurred. Please try again."
       };
     } else {
       errorMessage = error.json();

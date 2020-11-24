@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material';
 import { HttpService } from 'src/app/common/services/http.service';
 
 import { Router } from '@angular/router';
-import { ResultsDialogComponent } from 'src/app/exams/view-exam/questionnaire/results-dialog/results-dialog.component';
+import { ResultsDialogComponent } from 'src/app/interviews/results-dialog/results-dialog.component';
 
 @Component({
   selector: 'app-preview-responses',
@@ -17,7 +17,6 @@ export class PreviewResponsesComponent implements OnInit {
   start_interview: any;
   outcome: any;
   final_score: any;
-
   constructor(
     private dialog: MatDialog,
     private httpService: HttpService,
@@ -30,12 +29,7 @@ export class PreviewResponsesComponent implements OnInit {
     )
     this.start_interview_details = JSON.parse(
       sessionStorage.getItem("startinterview_data")
-      
     );
-    // this.final_score = JSON.parse(
-    //   sessionStorage.getItem("score_totals")
-    // ); 
-    
   }
   viewResults(res) {
     // this.router.navigate(['main/interviews/preview'])
@@ -47,8 +41,12 @@ export class PreviewResponsesComponent implements OnInit {
       disableClose: true,
       width: "600px",
     });
+    dialogRef.afterClosed().subscribe(res => {
+      res;
+    })
   }
   editResponse(response) {
+    response;
    this.router.navigate(['main/interviews/interviewee'])
   }
   backToInterview() {
@@ -62,7 +60,7 @@ export class PreviewResponsesComponent implements OnInit {
     };
     this.httpService
       .put(
-     `interviewee/${this.start_interview_details.intervieweeId}/start/${this.interview_details.interview_id}`,
+     `interviewee/${this.start_interview_details.intervieweeId}/end/${this.interview_details.interview_id}`,
         model
       )
       .subscribe((result) => {

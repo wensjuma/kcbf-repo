@@ -30,10 +30,12 @@
             <mat-step>
                 <form [formGroup]="form" class="form">
                     <hr>
-                    <div class="body" *ngFor="let
+                    <!-- <div class="body" *ngFor="let
                         question of questions | slice: (page-1) * pageSize :
                         (page-1) *
-                        pageSize + pageSize; let i= index">
+                        pageSize + pageSize; let i= index"> -->
+                    <div class="body" *ngFor="let
+                        question of questions; let i= index">
                         <div class="row">
                             <div class="col-md-1">
                                 <button type="button" class="btn
@@ -53,6 +55,7 @@
                                      <input type="text" value='{{item.score}}'/>  
                                      {{item.option_text}}         
                                   </div>  -->
+                              <section>
                                 <form [formGroup]="form">
                                     <label *ngFor="let option of
                                         question.options;">
@@ -64,20 +67,25 @@
                                             [checked]="option.selected"
                                             value="{{option.score}}" />
                                         {{option.option_text}}
-                                    </label>
-                                   
-                                        <!-- <mat-radio-button 
-                                        *ngFor="let option of question.options" 
-                                        formControlName="responseOption"
-                                        (change)="getValue(option,question)"
-                                        type="radio"
-                                        name="responseOption"
-                                        [checked]="option.selected"
-                                         value="{{option.score}}"> 
-                                         {{option.option_text}}
-                                        </mat-radio-button> -->
-                                      
+                                    </label>                                    
                                 </form>
+                              </section>
+                              <!-- <section *ngIf="question.type_of_question ==='OPEN_ENDED'">
+                                <form [formGroup]="form">
+                                   
+                                    <mat-form-field>
+                                        <mat-label><small>{{question.question}}</small></mat-label>
+                                        <input class="form-option"
+                                        formControlName="responseOption"
+                                        (ngModelChange)="getValue($event.target.value, question)"
+                                        type="text"
+                                        name="responseOption"
+                                        matInput
+                                        [value]="text_response" />
+                                    </mat-form-field>
+                                                                          
+                                </form>
+                              </section> -->
                             </div>
                             <div class="col-md-2">
                                 <small><b>Max marks </b></small>
@@ -103,7 +111,7 @@
                             <button type="button" (click)="viewResults()"
                                 mat-raised-button
                                 [disabled]="!form.valid"
-                                class="pull-right btn-block btn-submits">Preview </button>
+                                class="pull-right btn-block btn-submits">Submit </button>
                         </div>
                     </div>
                     </form>

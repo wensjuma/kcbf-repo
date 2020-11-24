@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
       username: ["", Validators.required],
       password: [
         "",
-        Validators.compose([Validators.required, Validators.minLength(4)]),
-      ],
+        Validators.compose([Validators.required, Validators.minLength(4)])
+      ]
     });
   }
 
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     const model = {
       username: this.loginForm.value.username,
-      password: this.loginForm.value.password,
+      password: this.loginForm.value.password
     };
     console.log(model);
     this.authService.login("login", model).subscribe(

@@ -43,7 +43,9 @@ public settings = {
       type: 'text',
       filter: false,
       width: "60px",
-      valuePrepareFunction: (value,row,cell) => {
+      valuePrepareFunction: (value, row, cell) => {
+        value;
+        row;
         return cell.row.index + 1;
        }
     },
@@ -75,7 +77,7 @@ public settings = {
         const raw = new Date(date);
         const formatted = this.datePipe.transform(raw, 'dd MMM yyyy');
         return formatted;
-      },
+      }
     },
     account_status: {
       title: 'Status',

@@ -52,37 +52,39 @@ export class StepIntervieweesComponent implements OnInit {
         filter: false,
         width: "60px",
         valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
-        },
+        }
       },
       first_name: {
         title: "First Name",
         type: "string",
-        filter: false,
+        filter: false
       },
       last_name: {
         title: "Last Name",
         type: "string",
-        filter: false,
+        filter: false
       },
       email_address: {
         title: "Email",
         type: "string",
-        filter: false,
+        filter: false
       },
       phone_number: {
         title: "Phonenumber",
         type: "string",
-        filter: false,
+        filter: false
       },
 
     },
     attr: {
-      class: "table table-bordered table-striped",
+      class: "table table-bordered table-striped"
     },
     pager: {
       display: true,
-      perPage: 10,
+      perPage: 10
     },
   };
   interviewees: any;
@@ -114,6 +116,9 @@ export class StepIntervieweesComponent implements OnInit {
       });
   }
   onCustomAction(event){
-
+    event;
+  }
+  close() {
+    this.dialogRef.close()
   }
 }

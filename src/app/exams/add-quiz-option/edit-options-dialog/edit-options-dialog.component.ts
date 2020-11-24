@@ -20,11 +20,13 @@ public form : FormGroup
     private dialog: MatDialog
   ) { 
  
-    this.form = this._fb.group({ 
-      option_text: [this.data?this.data.option_text:'', Validators.required],
-      order: [this.data?this.data.order:'', Validators.required],
-      score: [this.data?this.data.score:'', Validators.required],
-    })  
+    if (data) {
+      this.form = this._fb.group({ 
+        option_text: [this.data.option_text, Validators.required],
+        order: [this.data.order, Validators.required],
+        score: [this.data.score, Validators.required],
+      })  
+   }
   }
   // exam/question/303/option/309
   onSubmit(){

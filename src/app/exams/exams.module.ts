@@ -31,6 +31,7 @@ import { EditOptionsDialogComponent } from './add-quiz-option/edit-options-dialo
     AddQuizOptionComponent,
     AddNewQuizComponent,
     EditOptionsDialogComponent
+    
   ]
 })
 export class ExamsModule { }

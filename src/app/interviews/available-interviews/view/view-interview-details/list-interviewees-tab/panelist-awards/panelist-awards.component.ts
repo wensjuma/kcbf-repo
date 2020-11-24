@@ -1,11 +1,11 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { HttpService } from "src/app/common/services/http.service";
 
 @Component({
   selector: "app-panelist-awards",
   templateUrl: "./panelist-awards.component.html",
-  styleUrls: ["./panelist-awards.component.scss"],
+  styleUrls: ["./panelist-awards.component.scss"]
 })
 export class PanelistAwardsComponent implements OnInit {
   interviewee: string;
@@ -41,24 +41,26 @@ export class PanelistAwardsComponent implements OnInit {
         type: 'text',
         filter: false,
         width: "60px",
-        valuePrepareFunction: (value,row,cell) => {
+        valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
          }
       },   
       interview_name: {
         title: 'Interview',
         type: 'string',
-        filter: false,
+        filter: false
       },
       interview_first_name: {
         title: 'Panelist first Name',
         type: 'string',
-        filter: false,
+        filter: false
       },
       interview_middle_name: {
         title: 'Middle name',
         type: 'string',
-        filter: false,
+        filter: false
        
       },
       interview_score: {
@@ -88,7 +90,6 @@ export class PanelistAwardsComponent implements OnInit {
   constructor(
     private httpService: HttpService,
     @Inject(MAT_DIALOG_DATA) private _data: any,
-
     private dialogRef: MatDialogRef<PanelistAwardsComponent>
   ) {}
 
@@ -111,7 +112,7 @@ export class PanelistAwardsComponent implements OnInit {
     this.dialogRef.close();
   }
   onCustomAction(event: any){
-  
+    event;
 }
 }
 

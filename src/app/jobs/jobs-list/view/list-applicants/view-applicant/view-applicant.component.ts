@@ -22,54 +22,68 @@ export class ViewApplicantComponent implements OnInit {
   subs = new SubSink()
   applicant_info: any;
   newWindow: Window;
+  apprenticeships: any;
+  businesses: any;
+  documents: any;
+  guardians: any;
+  siblings: any;
+  scholarships: any;
 
   constructor(
     private httpService: HttpService,
     private activeRoute: ActivatedRoute,
     private alertService: ToasterAlertService,
-    private router: Router,
+    private router: Router
    
   ) { 
     this.applicant_id = this.activeRoute.snapshot.paramMap.get("id");
     this.job_details = JSON.parse(sessionStorage.getItem("jobdetails"));  
-    this.applicant_info = JSON.parse(sessionStorage.getItem("applicant_info"));  
+    // this.applicant_info = JSON.parse(sessionStorage.getItem("applicant_info"));  
     console.log(this.applicant_info); 
   }
   ngOnInit() {
     this.loadApplicantInfo()
-    this.loadApplicantWorkExperience()
-    this.loadApplicantEducation()
-    this.loadApplicantDocuments()
+   
   }
   loadApplicantInfo() {
-    this.httpService.get(`application/${this.applicant_id}`)
+    this.httpService.get(`application/${this.applicant_id}/view/details`)
       .subscribe(res => {
-     this.applicant_details = res['data']   
-    })
-  }
-  loadApplicantWorkExperience() {
-    this.httpService.get(`application/${this.applicant_id}/employment/history`)
-      .subscribe(res => {
-        this.works = res['data']       
-    })
-  }
-  loadApplicantEducation() {
-    this.httpService.get(`application/${this.applicant_id}/education/history`)
-      .subscribe(res => {
-        this.education_history = res['data']       
-    })
-  }
-  loadApplicantDocuments() {
-    this.httpService.get(`application/${this.applicant_id}/documents`)
-      .subscribe(res => {
-        this.uploaded_file = res['data']  
-        console.log(this.uploaded_file);
+         console.log(res);
+        this.applicant_details = res['data']['application']
+        this.apprenticeships = res['data']['apprenticeships']
+        this.businesses = res['data']['businesses']
+        this.uploaded_file = res['data']['documents']
+        this.education_history = res['data']['education']
+        this.works = res['data']['employments']
+        this.guardians = res['data']['guardians']
+        this.applicant_details = res['data']['application']
+        this.siblings = res['data']['siblings']
+        this.scholarships = res['data']['scholarships']
         
+    //  this.applicant_details = res['data']   
     })
   }
+  // loadApplicantWorkExperience() {
+  //   this.httpService.get(`application/${this.applicant_id}/employment/history`)
+  //     .subscribe(res => {
+  //       this.works = res['data']       
+  //   })
+  // }
+  // loadApplicantEducation() {
+  //   this.httpService.get(`application/${this.applicant_id}/education/history`)
+  //     .subscribe(res => {
+  //       this.education_history = res['data']       
+  //   })
+  // }
+  // loadApplicantDocuments() {
+  //   this.httpService.get(`application/${this.applicant_id}/documents`)
+  //     .subscribe(res => {
+  //       this.uploaded_file = res['data']  
+  //       console.log(this.uploaded_file);
+        
+  //   })
+  // }
   acceptApplication(data: any) {
-    console.log(data);
-    
     Swal.fire({
       // title: 'Are you sure want to delete?',
       text: 'Sure to Accept this application?',
@@ -80,7 +94,8 @@ export class ViewApplicantComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.httpService.get(`application/${this.job_details.listing_id}/accept/${data.application_id}`)
-        .subscribe(res => {
+          .subscribe(res => {
+          console.log(res);
           if (res['responseCode'] === "00") {
             Swal.fire(
                     'Accepted !',

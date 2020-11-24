@@ -23,15 +23,15 @@ export class ListMyInterviewsComponent implements OnInit {
         {
           name: "viewrecord",
           title:
-            '&nbsp;<span class="btn btn-sm btn-success">More Action</span>',
-        },
+            '&nbsp;<span class="btn btn-sm btn-success">More Action</span>'
+        }
       ],
-      position: "right",
+      position: "right"
     },
     delete: {
       deleteButtonContent:
         '&nbsp;&nbsp;<i class="fa fa-trash-o text-danger"></i>',
-      confirmDelete: true,
+      confirmDelete: true
     },
     noDataMessage: "No data found",
     columns: {
@@ -41,32 +41,34 @@ export class ListMyInterviewsComponent implements OnInit {
         filter: false,
         width: "60px",
         valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
-        },
+        }
       },
       interview_name: {
         title: "Interview",
         type: "string",
         filter: false,
-        width: "150px",
+        width: "150px"
       },
       description: {
         title: "Description",
         type: "string",
         filter: false,
-        width: "200px",
+        width: "200px"
       },
       location_name: {
         title: "Room",
         type: "string",
         filter: false,
-        width: "140px",
+        width: "140px"
       },
       location_code: {
         title: "Room code",
         type: "string",
         filter: false,
-        width: "110px",
+        width: "110px"
       },
       start_date: {
         title: "Date|Time",
@@ -80,32 +82,28 @@ export class ListMyInterviewsComponent implements OnInit {
             "dd MMM yyyy HH:mm"
           );
           return formatted;
-        },
-      },
+        }
+      }
     },
     attr: {
       class: "table table-bordered table-striped",
     },
     pager: {
       display: true,
-      perPage: 20,
-    },
+      perPage: 20
+    }
   };
   constructor(
     private httpService: HttpService,
     private datePipe: DatePipe,
     private router:Router
   ) { }
-
   ngOnInit() {
     this.loadPanelistInterviews()
   }
    loadPanelistInterviews() {
-   
     this.httpService.get("interviewer/interviews").subscribe((result) => {
       this.interviews = result["data"]; //? result["data"].reverse():'';
-      console.log(this.interviews);
-    
     });
   }
   viewMore(data: any) {

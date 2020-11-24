@@ -41,7 +41,8 @@ subs = new SubSink()
         type: 'text',
         filter: false,
         width: "60px",
-        valuePrepareFunction: (value,row,cell) => {
+        valuePrepareFunction: (value, row, cell) => {
+          value = value; row = row;
           return cell.row.index + 1;
          }
       },
@@ -93,7 +94,6 @@ subs = new SubSink()
   constructor(
     private httpService: HttpService,
     private datePipe: DatePipe,
-    private router: Router
   ) { }
 
   ngOnInit() {
@@ -107,9 +107,8 @@ subs = new SubSink()
     });
   }
   viewApplicant(data: any, event) {
-    console.log(data);
-    
-    // this.router.navigate(['applicant', data.])
+    console.log(event);
+    data = data;
   }
   onCustomAction(event: any) {
     switch (event.action) {

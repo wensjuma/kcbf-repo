@@ -23,16 +23,16 @@ export class ConfigExamsComponent implements OnInit {
         {
           name: "editExam",
           title:
-            '<i class="fa fa-pencil-square btn btn-sm btn-info fa-1x text-light"></i> &nbsp;&nbsp;',
+            '<i class="fa fa-pencil-square btn btn-sm btn-info fa-1x text-light"></i> &nbsp;&nbsp;'
         },
         {
           name: "viewExam",
           title:
-            '<i title="View this exam" class="fa fa-eye btn btn-sm btn-success"></i>',
-        },
+            '<i title="View this exam" class="fa fa-eye btn btn-sm btn-success"></i>'
+        }
         // { name: 'editQuiz', title: '<i class="fa  fa-pencil"></i>' }
       ],
-      position: "right",
+      position: "right"
     },
     // rowClassFunction: (row) => {
 
@@ -48,8 +48,10 @@ export class ConfigExamsComponent implements OnInit {
         filter: false,
         width: "40px",
         valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
-        },
+        }
       },
       exam_name: {
         title: "Exam",
@@ -61,17 +63,17 @@ export class ConfigExamsComponent implements OnInit {
         title: "Description",
         type: "string",
         filter: false,
-        width: "500px",
-      },
+        width: "500px"
+      }
      
     },
     attr: {
-      class: "table table-bordered table-striped",
+      class: "table table-bordered table-striped"
     },
     pager: {
       display: true,
-      perPage: 20,
-    },
+      perPage: 20
+    }
   };
   questions; //: Questions
   interview_id: any;
@@ -117,6 +119,7 @@ export class ConfigExamsComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((res) => {
+      res = res;
       this.loadExams();
     });
   }

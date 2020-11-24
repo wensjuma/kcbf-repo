@@ -23,8 +23,8 @@ export class ViewsComponent implements OnInit {
         {
           name: "startInterview",
           title:
-            '&nbsp;<i class="btn-start btn-sm fa-1x btn btn-success  text-light"> start</i>',
-        },
+            '&nbsp;<i class="btn-start btn-sm fa-1x btn btn-success  text-light"> start</i>'
+        }
       ],
     //   rowClassFunction:(row)=>{
     //     let complete = this.isInterviewComplete(row.data);
@@ -34,12 +34,12 @@ export class ViewsComponent implements OnInit {
     //         return '';
     //     }
     // },
-      position: "right",
+      position: "right"
     },
     delete: {
       deleteButtonContent:
         '&nbsp;&nbsp;<i class="fa fa-trash-o text-danger"></i>',
-      confirmDelete: true,
+      confirmDelete: true
     },
     noDataMessage: "No data found",
     columns: {
@@ -49,38 +49,40 @@ export class ViewsComponent implements OnInit {
         filter: false,
         width: "60px",
         valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
-        },
+        }
       },
       first_name: {
         title: "First Name",
         type: "string",
-        filter: false,
+        filter: false
       },
       last_name: {
         title: "Last Name",
         type: "string",
-        filter: false,
+        filter: false
       },
       email_address: {
         title: "Email",
         type: "string",
-        filter: false,
+        filter: false
       },
       phone_number: {
         title: "Phonenumber",
         type: "string",
-        filter: false,
+        filter: false
       },
 
     },
     attr: {
-      class: "table table-bordered table-striped",
+      class: "table table-bordered table-striped"
     },
     pager: {
       display: true,
-      perPage: 10,
-    },
+      perPage: 10
+    }
   };
   constructor(
     private httpService: HttpService,
@@ -98,7 +100,8 @@ export class ViewsComponent implements OnInit {
       .subscribe((result) => {
         console.log(result);
         this.interviewees = result["data"];
-        result['data'].map(res=>{
+        result['data'].map(res => {
+          res;
           // console.log(res.attended);    
           // if(res.attended ==null){
           //   this.action_button = false

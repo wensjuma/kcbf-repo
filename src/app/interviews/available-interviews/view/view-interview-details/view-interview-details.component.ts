@@ -41,12 +41,12 @@ export class ViewInterviewDetailsComponent implements OnInit {
       first_name: {
         title: 'first Name',
         type: 'string',
-        filter: false,
+        filter: false
       },
       last_name: {
         title: 'Last Name',
         type: 'string',
-        filter: false,
+        filter: false
        
       },
       email_address: {
@@ -70,8 +70,6 @@ export class ViewInterviewDetailsComponent implements OnInit {
   };
   interviewees: any;
   constructor(
-    private router: Router,
-    private httpService: HttpService,
     private dialog: MatDialog,
    
   ) {
@@ -92,15 +90,18 @@ export class ViewInterviewDetailsComponent implements OnInit {
     const dialogRef = this.dialog.open(ViewPanelistDialogComponent, {
       width:'400px',
       data: {
-        data: _data,
+        data: _data
       },
-      disableClose: true,
-    });
+      disableClose: true
+    })
+    dialogRef.afterClosed().subscribe(res => {
+      res = res;
+    })
   }
 
  
-  start_interview(start_interview: any): string {
-    throw new Error('Method not implemented.');
+  start_interview(start_interview: any) {
+   start_interview= start_interview
   }
   onCustomAction(event: any){
      

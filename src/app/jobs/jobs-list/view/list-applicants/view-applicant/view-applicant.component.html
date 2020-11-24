@@ -1,5 +1,5 @@
 <div class="row">
-    
+
     <div class="col-md-6">
         <b class="applicant_title"> Applicant Details
            
@@ -12,10 +12,10 @@
 </div>
 
 <form action="">
-    <div class="card-form"> 
+    <div class="card-form">
         <div class="row">
             <div *ngIf="applicant_details" class="section edu-details col-6">
-                <span *ngIf="applicant_details.accepted"  class="badge-success badge"><i class="fa fa-check-circle"></i> Application accepted</span>
+                <span *ngIf="applicant_details.accepted" class="badge-success badge"><i class="fa fa-check-circle"></i> Application accepted</span>
                 <h4><small class="text-success">{{applicant_details.first_name}} {{applicant_details.middle_name}}
                         {{applicant_details.surname}}</small></h4>
                 <small><b>Email </b><span class="pull-right">{{applicant_details.email_address}}</span></small>
@@ -27,44 +27,72 @@
                 <small><b>Expected salary</b> <span class="pull-right">{{applicant_details.expected_salary}}</span> </small>
                 <br>
                 <small><b>Postal address</b> <span class="pull-right">{{applicant_details.postal_address}}</span> </small>
-               <br>
+                <br>
                 <small><b>Date of application</b> <span class="pull-right">{{applicant_details.applied_on | date: 'dd MMM yyyy'}}</span> </small>
-              <br>
+                <br>
                 <small><b>Residence</b> <span class="pull-right">{{applicant_details.applicant_residence}}</span> </small>
                 <br>
                 <small><b>Gender</b>
                      <span *ngIf="applicant_details.gender === 'M'" class="pull-right">Male</span> 
                      <span *ngIf="applicant_details.gender === 'F'" class="pull-right">Female</span> 
                     </small>
-                   <hr>
-                   <h5><small>ATTACHED CV</small></h5>
-                   <div class="row">
-                       <div class="col-md-12">
-                           <div  class="card documents">
-                               <img width="80px" src="assets/document.png">
-                               <small>
-                                   <i class="fab fa-pdf"></i> {{applicant_info.upload.file_name}}
+                <hr>
+                <!-- <h5><small>ATTACHED CV</small></h5>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div *ngIf="applicant_info" class="card documents">
+                            <img width="80px" src="assets/document.png">
+                            <small>
+                                   <!-- <i class="fab fa-pdf"></i> {{applicant_info.upload.file_name}} -
                                </small>
-                               <hr>
-                              <div class="row">
-                                  <div class="col-md-6">
-                                   <button title="Open file" (click)="downloadFile(applicant_info.upload.file_name)" class="btn btn-info btn-block btn-sm pull-left"><i class="fa fa-folder-open-o "></i> </button>
-                                  </div>
-                                  <div class="col-md-6">
-                                   <button title="Download file" (click)="downloadFile(applicant_info.upload.file_name)" class="btn btn-block btn-success btn-sm pull-right"><i class="fa fa-download"></i> </button>
-                                  </div>
-                              </div>
-                           </div>
-                       </div>
-                   </div>
-             
-                </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button title="Open file" (click)="downloadFile(applicant_info.upload.file_name)" class="btn btn-info btn-block btn-sm pull-left"><i class="fa fa-folder-open-o "></i> </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button title="Download file" (click)="downloadFile(applicant_info.upload.file_name)" class="btn btn-block btn-success btn-sm pull-right"><i class="fa fa-download"></i> </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <section *ngIf="guardians">
+                    <h5><small>GUARDIAN DETAILS</small></h5>
+    
+                    <form class="edu-details">
+                        <section *ngFor="let guardian of guardians" class="card-education">
+                            <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
+                            <small><b>{{guardian.first_name}} {{guardian.last_name}} </b> </small>
+                             
+                            <br>
+                            <small><b>Relationship</b> {{guardian.relationship}} </small>
+                            <br>
+                            <small><b>Citizenship</b> {{guardian.citizenship}} </small>
+                            <br>
+                            <small><b>Mariage status</b> {{guardian.marriage_status}} </small>
+                            <br>
+                            <small><b>Mariage status</b> {{guardian.national_id}} </small>
+                            <br>
+                            <small><b>Town/city</b> {{guardian.town_city}} </small>
+                            <br>
+                            <small><b>Residence type</b> {{guardian.residence_type}} </small>
+                            <br>
+                            <small><b>Employment</b> {{guardian.employment_type}} </small>
+                            <hr>
+                            <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
+                        </section>
+                    </form>
+                    </section>
+
+            </div>
             <div class="col-6">
                 <br>
                 <br>
+               <section *ngIf="education_history">
                 <h5><small>EDUCATION DETAILS</small></h5>
                 <form class="edu-details">
-                    
+
                     <section *ngFor="let education of education_history" class="card-education">
                         <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
                         <small><b>{{education.institution_name}} </b> </small><br>
@@ -75,9 +103,11 @@
                         <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
                     </section>
                 </form>
+               </section>
                 <hr>
+                <section *ngIf="works">
                 <h5><small>WORK EXPERIENCE</small></h5>
-                
+
                 <form class="edu-details">
                     <section *ngFor="let work of works" class="card-education">
                         <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
@@ -90,29 +120,116 @@
                         <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
                     </section>
                 </form>
+                </section>
                 <hr>
- 
-               
-                <h5><small>OTHER DOCUMENTS</small></h5>
-               <div class="row">
-                <form class="col-md-12" *ngFor="let upload of uploaded_file"> 
-                    <div  class="card documents">
-                        <img width="80px" src="assets/document.png">
-                        <small>
+                <section *ngIf="siblings">
+                <h5><small>SIBLINGS DETAILS</small></h5>
+
+                <form class="edu-details">
+                    <section *ngFor="let sibling of siblings" class="card-education">
+                        <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
+                        <small><b>{{sibling.full_name}} </b> </small>
+                         
+                        <br>
+                        <small><b>Gender</b> {{sibling.gender}} </small>
+                        <br>
+                        <small><b>Age</b> {{sibling.age}} </small>
+                        <br>
+                        <small><b>Institution</b> {{sibling.institution_or_school}} </small>
+                        <br>
+                        <small><b>Occupation</b> {{sibling.occupation}} </small>
+                        <hr>
+                        <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
+                    </section>
+                </form>
+                </section>
+                <section *ngIf="apprenticeships">
+                <h5><small>APPRENTICESHIP DETAILS</small></h5>
+
+                <form class="edu-details">
+                    <section *ngFor="let app of apprenticeships" class="card-education">
+                        <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
+                      
+                        <small><b>Employer</b> {{app.employer_name}} </small>
+                        <br>
+                        <small><b>Location</b> {{app.employment_location}} </small>
+                        <br>
+                        <small><b>Employment nature</b> {{app.employment_nature}} </small>
+                        <br>
+                        <small><b>Contact</b> {{app.employment_contact}} </small>
+                        <br>
+                        <small><b>Duration</b> {{app.duration_type}} {{app.duration}} </small>
+                        <hr>
+                        <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
+                    </section>
+                </form>
+                </section>
+                <hr>
+                <section *ngIf="businesses">
+                <h5><small>BUSINESS DETAILS</small></h5>
+
+                <form class="edu-details">
+                    <section *ngFor="let business of businesses" class="card-education">
+                        <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
+                        <small><b>{{business.business_name}} </b> </small>
+                        <br>
+                        <small><b>Business number</b> {{business.business_number}} </small>
+                        <br>
+                        <small><b>Business type</b> {{business.business_type}} </small>
+                        <br>
+                        <small><b>Existence</b>  {{business.duration}} {{business.duration_type}}</small>
+                        <br>
+                        <small><b>Registered </b>
+                            <span *ngIf="!business.is_registered" class="badge badge-warning">NO</span>
+                             <span class="badge badge-success text-light" *ngIf="business.is_registered">YES</span> </small>
+                        <hr>
+                        <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
+                    </section>
+                </form>
+                </section>
+                <hr>
+                <section *ngIf="scholarships">
+                <h5><small>SCHOLARSHIP DETAILS</small></h5>
+
+                <form class="edu-details">
+                    <section *ngFor="let scholar of scholarships" class="card-education">
+                        <!-- <span (click)="addEducation(education, null)" class="pull-right text-info fa fa-pencil"></span> -->
+                        <!-- <small><b>{{business.business_name}} </b> </small> -->
+                        <br>
+                        <small><b>Institution</b> {{scholar.institution_name}} </small>
+                        <br>
+                        <small><b>Course</b> {{scholar.course_name}} </small>
+                        <br>
+                        <small><b>Duration</b>  {{scholar.duration}} {{scholar.duration_type}}</small>
+                        <br>
+                        <small><b>Description </b>  
+                          {{scholar.description}}</small>
+                        <hr>
+                        <!-- <span (click)="deleteEducation(education)" class="pull-right fa fa-trash text-danger"></span> -->
+                    </section>
+                </form>
+                </section>
+                <hr>
+                <section *ngIf="uploaded_file" class="rpow">
+                     <h5><small>DOCUMENTS</small></h5>
+                    <form class="col-md-12" *ngFor="let upload of uploaded_file">
+                        <div class="card documents">
+                            <img width="80px" src="assets/document.png">
+                            <small>
                             <i class="fab fa-pdf"></i> {{upload.file.file_name}}
                         </small>
-                        <hr>
-                       <div class="row">
-                           <div class="col-md-6">
-                            <button title="Open file" (click)="downloadFile(upload.file.file_name)" class="btn btn-info btn-block btn-sm pull-left"><i class="fa fa-folder-open-o "></i> </button>
-                           </div>
-                           <div class="col-md-6">
-                            <button title="Download file" (click)="downloadFile(upload.file.file_name)" class="btn btn-block btn-success btn-sm pull-right"><i class="fa fa-download"></i> </button>
-                           </div>
-                       </div>
-                    </div>
-                </form>
-               </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button title="Open file" (click)="downloadFile(upload.file.file_name)" class="btn btn-info btn-block btn-sm pull-left"><i class="fa fa-folder-open-o "></i> </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button title="Download file" (click)="downloadFile(upload.file.file_name)" class="btn btn-block btn-success btn-sm pull-right"><i class="fa fa-download"></i> </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </section>
             </div>
         </div>
     </div>
@@ -120,11 +237,8 @@
 <br>
 <div class="row job-experience" *ngIf="applicant_details">
     <div class="col-12">
-        <button *ngIf="applicant_details.status === 0 || applicant_details.status ===2" (click)="acceptApplication(applicant_details)"
-        class="btn-success pull-right btn-inn btn btn-sm">Accept Application</button>
-                <button *ngIf="applicant_details.status === 0 || applicant_details.status ===1" (click)="rejectApplication(applicant_details)"
-        class="btn-warning pull-left btn btn-sm text-light">Reject Application</button>
+        <button *ngIf="!applicant_details.accepted" (click)="acceptApplication(applicant_details)" class="btn-success pull-right btn-inn btn btn-sm">Accept Application</button>
+        <button *ngIf="applicant_details.accepted && !applicant_details.accepted" (click)="rejectApplication(applicant_details)" class="btn-warning pull-left btn btn-sm text-light">Reject Application</button>
     </div>
 </div>
 <br> <br>
-

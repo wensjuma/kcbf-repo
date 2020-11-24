@@ -91,10 +91,10 @@ export class IntervieweeComponent implements OnInit {
       .get(`interview/${this.interview_details.interview_id}/questions`)
       .subscribe((res) => {     
         this.questions = res.data;
-        // this.options = res.data.map((res) => res.options);
       });
   }
   getValue(evt, data) {
+
     data.options.forEach(item => {
       if (item.optionId !== evt.optionId) {
         item.selected = false;
@@ -110,7 +110,7 @@ export class IntervieweeComponent implements OnInit {
       question_id: data.questionId,
       option_id: evt.optionId,
       notes: "Test notes",
-      score: evt.score,
+      score: evt.score
     };
     // console.log(model);
     this.responses.push(data)

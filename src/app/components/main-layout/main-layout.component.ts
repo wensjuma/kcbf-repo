@@ -7,7 +7,7 @@ import { AuthService } from '../../common/services/auth.service';
 @Component({
   selector: "app-main-layout",
   templateUrl: "./main-layout.component.html",
-  styleUrls: ["./main-layout.component.scss"],
+  styleUrls: ["./main-layout.component.scss"]
 })
 export class MainLayoutComponent implements OnInit {
   parent_active: boolean = false;
@@ -39,8 +39,8 @@ export class MainLayoutComponent implements OnInit {
   openNotifications(notifications: any) {
     this.dialog.open(NotificationDialogComponent, {
       data: {
-        notif: notifications,
-      },
+        notif: notifications
+      }
     });
   }
   logout() {

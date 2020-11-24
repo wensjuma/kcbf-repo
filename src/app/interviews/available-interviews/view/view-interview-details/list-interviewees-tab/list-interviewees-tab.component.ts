@@ -25,15 +25,10 @@ export class ListIntervieweesTabComponent implements OnInit {
       edit: false,
       delete: false,
       custom: [
-        // {
-        //   name: "viewmoreResults",
-        //   title:
-        //     '<span><i title="View results break down" class="fa fa-eye btn btn-info btn-sm text-light"></i></span>',
-        // },
         {
           name: "startInterview",
           title:
-            '&nbsp;<i class="btn-start btn-sm fa-1x btn btn-success  text-light"> start</i>',
+            '&nbsp;<i class="btn-start btn-sm fa-1x btn btn-success  text-light"> start</i>'
         },
       ],
       rowClassFunction:(row)=>{
@@ -44,12 +39,12 @@ export class ListIntervieweesTabComponent implements OnInit {
             return '';
         }
     },
-      position: "right",
+      position: "right"
     },
     delete: {
       deleteButtonContent:
         '&nbsp;&nbsp;<i class="fa fa-trash-o text-danger"></i>',
-      confirmDelete: true,
+      confirmDelete: true
     },
     noDataMessage: "No data found",
     columns: {
@@ -59,38 +54,40 @@ export class ListIntervieweesTabComponent implements OnInit {
         filter: false,
         width: "60px",
         valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
         },
       },
       first_name: {
         title: "First Name",
         type: "string",
-        filter: false,
+        filter: false
       },
       last_name: {
         title: "Last Name",
         type: "string",
-        filter: false,
+        filter: false
       },
       email_address: {
         title: "Email",
         type: "string",
-        filter: false,
+        filter: false
       },
       phone_number: {
         title: "Phonenumber",
         type: "string",
-        filter: false,
-      },
+        filter: false
+      }
 
     },
     attr: {
-      class: "table table-bordered table-striped",
+      class: "table table-bordered table-striped"
     },
     pager: {
       display: true,
-      perPage: 10,
-    },
+      perPage: 10
+    }
   };
   start_interview: any;
   intv_id: string;
@@ -105,8 +102,6 @@ export class ListIntervieweesTabComponent implements OnInit {
     this.interview_details = JSON.parse(sessionStorage.getItem("interview_more"));
     this.loadPanelInterviewees();
     this.intv_id = this.activeRoute.snapshot.paramMap.get("id");
-    // console.log(id);
-    // this.isInterviewComplete()
   }
   isInterviewComplete(rowData){
     if(rowData.attended){
@@ -132,13 +127,14 @@ export class ListIntervieweesTabComponent implements OnInit {
       });
   }
   addInterviewee(data: any) {
-    // console.log(data);
+   data = data
     const dialogRef = this.dialog.open(AddIntervieweeComponent, {
       data: this.intv_id,
       width: "600px",
-      disableClose: true,
+      disableClose: true
     });
     dialogRef.afterClosed().subscribe((result) => {
+      result;
       this.loadPanelInterviewees();
     });
   }

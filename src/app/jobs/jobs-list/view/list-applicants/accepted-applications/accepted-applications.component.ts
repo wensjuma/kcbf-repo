@@ -37,36 +37,38 @@ export class AcceptedApplicationsComponent implements OnInit {
         type: 'text',
         filter: false,
         width: "30px",
-        valuePrepareFunction: (value,row,cell) => {
+        valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
          }
       },   
       first_name: {
         title: 'Firstname',
         type: 'string',
-        filter: false,
+        filter: false
       },
       surname: {
         title: 'Surname',
         type: 'string',
         filter: false, 
-        width: "100px",
+        width: "100px"
       },
       applicant_residence: {
         title: 'Residence',
         type: 'string',
         filter: false, 
-        width: "100px",    
+        width: "100px"   
       },
       email_address: {
         title: 'Email',
         type: 'string',
-        filter: false,   
+        filter: false  
       },
       phone_number: {
         title: 'Phone',
         type: 'string',
-        filter: false,
+        filter: false
       },
       applied_on: {
         title: 'Date applied',
@@ -114,7 +116,8 @@ export class AcceptedApplicationsComponent implements OnInit {
      })
   }
   viewApplicant(data: any, event) {    
-    console.log(data);
+    event;
+    
     sessionStorage.setItem('applicant_info', JSON.stringify(data))
     this.router.navigate([`/main/jobs/new/${this.job_details.listing_id}/applicant/`, data.application_id])
   }

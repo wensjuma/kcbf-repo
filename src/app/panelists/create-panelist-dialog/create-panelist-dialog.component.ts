@@ -19,7 +19,7 @@ export class CreatePanelistDialogComponent implements OnInit {
     console.log(data);
     
     this.createFormGroup = _fb.group({
-      firstname: [this.data.data? this.data.data.name:'', Validators.required],
+      firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       middlename: ['', Validators.required],
       phonenumber: ['', Validators.required],

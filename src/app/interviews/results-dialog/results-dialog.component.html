@@ -38,12 +38,15 @@
                 <br>
             </b> <br>
             <section class="section" *ngIf="details">
-                <br>
+               
                 <hr>
                 <section class="panelist_section">
-                  Total score {{details.interview_score}}
+                  Total score <span class="pull-right text-success">{{details.interview_score}}/{{details.maxScore}}</span> 
                   <hr>
-                  Percentage {{details.interview_score}}
+                  Percentage <span class="pull-right text-success"> {{details.percentageScore}}%</span>
+                   <hr>
+                  Recommendations: <br> 
+                  <span class="text-success">{{details.recommendation}}</span> 
                    <hr>
                   
 

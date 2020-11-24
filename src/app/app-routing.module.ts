@@ -12,11 +12,8 @@ import { ListPanelistsComponent } from "./panelists/list-panelists/list-panelist
 const routes: Routes = [
   {
     path: "",
-    component: LoginComponent,
+    component: LoginComponent
   },
-  
-  
-
   {
     path: "main",
     component: MainLayoutComponent,
@@ -27,32 +24,28 @@ const routes: Routes = [
         loadChildren: () =>
         import("./dashboard/dashboard.module").then(
           (m) => m.DashboardModule
-        ),
+        )
       },
       {
         path: "jobs",
         loadChildren: () =>
         import("./jobs/jobs.module").then(
           (m) => m.JobsModule
-        ),
+        )
       },
      
       {
         path: "panelists",
         canActivate: [AdminGuard],
-        component: ListPanelistsComponent,
+        component: ListPanelistsComponent
       },
-      // {
-      //   path: "results",
-      //   component: ShowResultsComponent,
-      // },
       {
         path: "users",
         // canActivate: [AdminGuard],
         loadChildren: () =>
           import("./user-management/user-management.module").then(
             (m) => m.UserManagementModule
-          ),
+          )
       },
       {
         path: "exams",
@@ -60,21 +53,21 @@ const routes: Routes = [
         loadChildren: () =>
           import("./exams/exams.module").then(
             (m) => m.ExamsModule
-          ),
+          )
       },
       {
         path: "interviews",
         loadChildren: () =>
           import("./interviews/interviews.module").then(
             (m) => m.InterviewsModule
-          ),
+          )
       },
       {
         path: "myinterviews",
         loadChildren: () =>
           import("./myinterviews/myinterviews.module").then(
             (m) => m.MyinterviewsModule
-          ),
+          )
       },
       {
         path: "config",
@@ -82,7 +75,7 @@ const routes: Routes = [
         loadChildren: () =>
         import("./configurations/configurations.module").then(
           (m) => m.ConfigurationsModule
-        ),
+        )
       }, 
       {
         path: "profile",
@@ -90,22 +83,20 @@ const routes: Routes = [
         loadChildren: () =>
         import("./profiles/profiles.module").then(
           (m) => m.ProfilesModule
-        ),
-      }, 
+        )
+      }
       
-    ],
+    ]
   },
   {
     path: "home",
     canActivate: [AuthGuard, AdminGuard],
-    component: LandingPageComponent,
-  }, 
-  
- 
+    component: LandingPageComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

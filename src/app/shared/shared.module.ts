@@ -38,11 +38,22 @@ import { LabelBooleanComponent } from './components/label-boolean/label-boolean.
 import { LabelCompletedComponent } from './components/label-completed/label-completed.component';
 import { LabelActiveComponent } from './components/label-active/label-active.component';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { InterviewDetailsComponent } from '../interviews/create-interview/interview-components/interview-details/interview-details.component';
 // import { MatMarkdownEditorModule } from 'mat-markdown-editor';
 
 @NgModule({
-  declarations: [LabelBooleanComponent, LabelCompletedComponent, LabelActiveComponent],
-  entryComponents: [LabelBooleanComponent, LabelCompletedComponent, LabelActiveComponent],
+  declarations: [
+    LabelBooleanComponent,
+    LabelCompletedComponent,
+    LabelActiveComponent,
+    InterviewDetailsComponent
+  ],
+  entryComponents: [
+    LabelBooleanComponent,
+    LabelCompletedComponent,
+    LabelActiveComponent,
+    InterviewDetailsComponent
+  ],
   imports: [
     // MatMarkdownEditorModule,
 

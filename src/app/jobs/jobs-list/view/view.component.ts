@@ -17,7 +17,7 @@ export class ViewComponent implements OnInit {
     private alertService: ToasterAlertService
   ) {
     this.job_details = JSON.parse(sessionStorage.getItem('jobdetails'))
-   }
+  }
   ngOnInit() {
   }
   publish(event: any): void {
@@ -41,10 +41,10 @@ export class ViewComponent implements OnInit {
           'Job not published',
           'error'
         )
-      }  
+      }
     })
   }
-  unpublish(event: any): void{
+  unpublish(event: any): void {
     Swal.fire({
       text: 'Are you sure want to unpublish the job?',
       icon: 'warning',
@@ -53,10 +53,10 @@ export class ViewComponent implements OnInit {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.value) {
-        this.subs =this.httpService.patch(`job/unpublish/${event.listing_id}`).subscribe(res => {
+        this.subs = this.httpService.patch(`job/unpublish/${event.listing_id}`).subscribe(res => {
           if (res.responseCode === '00') {
             this.job_details.published = false
-             this.alertService.successAlerts(res.responseMessage)
+            this.alertService.successAlerts(res.responseMessage)
           }
         })
       } else if (result.dismiss === Swal.DismissReason.cancel) {
@@ -67,8 +67,6 @@ export class ViewComponent implements OnInit {
         )
       }
     })
-   
-    
   }
   ngOnDestroy() {
     this.subs.unsubscribe()

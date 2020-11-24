@@ -38,19 +38,21 @@ export class ListPanelistsTabComponent implements OnInit {
         type: 'text',
         filter: false,
         width: "60px",
-        valuePrepareFunction: (value,row,cell) => {
+        valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
          }
       },   
       first_name: {
         title: 'First Name',
         type: 'string',
-        filter: false,
+        filter: false
       },
       last_name: {
         title: 'Last Name',
         type: 'string',
-        filter: false,
+        filter: false
        
       },
       email_address: {
@@ -77,20 +79,19 @@ export class ListPanelistsTabComponent implements OnInit {
     private httpService:  HttpService
   ) { 
     this.interview_details = JSON.parse(sessionStorage.getItem("interview_more"));
-    // console.log(this.interview_details);
   }
   ngOnInit() {
     this.loadPanelists() 
   }
   addPanelist(interview) {
-    // console.log(interview); 
     const dialogRef = this.dialog.open(AssignPanelistComponent, {
       data: {
-        data: interview,
+        data: interview
       },
-      disableClose: true,
+      disableClose: true
     });
     dialogRef.afterClosed().subscribe((result) => {
+      result= result
       this.loadPanelists();
     });
   }
@@ -102,10 +103,7 @@ export class ListPanelistsTabComponent implements OnInit {
         console.log(this.panelists);
       });
   }
-  onCustomAction(event){  
-
+  onCustomAction(event) {  
+    event;
   }
-  
-  
-
 }

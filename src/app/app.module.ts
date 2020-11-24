@@ -72,14 +72,14 @@ import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import { QuestionnaireComponent } from './exams/view-exam/questionnaire/questionnaire.component';
 export const MY_FORMATS = {
   parse: {
-    dateInput: 'LL',
+    dateInput: 'LL'
   },
   display: {
     dateInput: 'YYYY-MM-DD',
     monthYearLabel: 'YYYY',
     dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'YYYY',
-  },
+    monthYearA11yLabel: 'YYYY'
+  }
 };
 
 @NgModule({
@@ -95,7 +95,7 @@ export const MY_FORMATS = {
     InterviewResultsComponent
   ],
   imports: [
-    // CommonModule,
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     SidebarModule,
@@ -126,7 +126,7 @@ export const MY_FORMATS = {
      {
       timeOut: 3000,
       positionClass: 'toast-top-right',
-      preventDuplicates: true,
+      preventDuplicates: true
      }
    ),
    CountdownModule,
@@ -167,7 +167,7 @@ export const MY_FORMATS = {
     MatToolbarModule,
     MatTooltipModule,
     MatPaginatorModule,
-    MatDialogModule,
+    MatDialogModule
    
   ],
   schemas: [
@@ -179,7 +179,7 @@ export const MY_FORMATS = {
         provide: HTTP_INTERCEPTORS,
         useClass: SystemHttpInterceptor,
       
-        multi: true,
+        multi: true
     },
 
   //   {
@@ -190,11 +190,11 @@ export const MY_FORMATS = {
   //   },
   {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
 
-  {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS}
   ],
   entryComponents:[
    CreatePanelistDialogComponent,
-   NotificationDialogComponent,
+   NotificationDialogComponent
   
   //  CreateUserComponent
   ],

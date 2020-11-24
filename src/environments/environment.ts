@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: false
   // baseUrl : 'http://102.133.170.144:30594/kcb-foundation/api/'
 };
 

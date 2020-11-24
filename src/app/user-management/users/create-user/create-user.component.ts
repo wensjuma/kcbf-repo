@@ -21,35 +21,43 @@ export class CreateUserComponent implements OnInit {
     private dialogRef: MatDialogRef<CreateUserComponent>,
     private alertServce: ToasterAlertService
   ) {
-    // console.log(data);
-    this.form = _fb.group({
-      firstname: [
-        this.data.data ? this.data.data.first_name : "",
-        Validators.required,
-      ],
-      lastname: [this.data.data ? this.data.data.last_name:"", Validators.required],
-      middlename: [this.data.data ? this.data.data.middle_name:"", Validators.required],
-      phonenumber: [this.data.data ? this.data.data.phone_number:"", Validators.required],
-      email: [this.data.data ? this.data.data.email_address:"", Validators.required],
-      bio: [this.data.data ? this.data.data.bio :"", Validators.required],
-      academic_details: [this.data.data ? this.data.data.academic_details:"", Validators.required],
-      user_type: [this.data.data ? this.data.data.accountType:"", Validators.required]
-    });
     if (this.data.mode) {
       this.title = "Create users";
+      this.form = _fb.group({
+        firstname: ["", Validators.required],
+        lastname: [ "", Validators.required],
+        middlename: [ "", Validators.required],
+        phonenumber: [ "", Validators.required],
+        email: ["", Validators.required],
+        bio: [ "" , Validators.required],
+        academic_details: ["", Validators.required],
+        user_type: [ "", Validators.required]
+      });
     } else {
       this.title = "Edit user";
+      this.form = _fb.group({
+        firstname: [
+           this.data.data.first_name,
+          Validators.required,
+        ],
+        lastname: [ this.data.data.last_name, Validators.required],
+        middlename: [ this.data.data.middle_name, Validators.required],
+        phonenumber: [ this.data.data.phone_number, Validators.required],
+        email: [ this.data.data.email_address, Validators.required],
+        bio: [ this.data.data.bio , Validators.required],
+        academic_details: [ this.data.data.academic_details, Validators.required],
+        user_type: [ this.data.data.accountType, Validators.required]
+      });
     }
     this.user_type = UserTypes
   }
   onSubmit(formData) {
+    formData;
     if (this.data.mode) {
     this.create()
     } else {
       this.edit()
-    }
-      
-    
+    } 
   }
   create() {
     const model = {

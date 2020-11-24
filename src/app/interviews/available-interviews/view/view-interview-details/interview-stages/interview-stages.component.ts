@@ -38,7 +38,7 @@ export class InterviewStagesComponent implements OnInit {
           name: "deleteRecord",
           title:
             ' &nbsp;<i class="fa fa-trash fa-1x btn btn-sm btn-danger  text-light"></i>',
-        },
+        }
         // { name: 'editrecord', title: '&nbsp;&nbsp;<i class="fa  fa-pencil"></i>' }
       ],
       position: "right",
@@ -57,12 +57,12 @@ export class InterviewStagesComponent implements OnInit {
         width: "60px",
         valuePrepareFunction: (value, row, cell) => {
           return cell.row.index + 1;
-        },
+        }
       },
       stage_name: {
         title: "Stage Name",
         type: "string",
-        filter: false,
+        filter: false
         
       },
       description: {
@@ -70,14 +70,14 @@ export class InterviewStagesComponent implements OnInit {
         type: "string",
         filter: false,
         width: "260px"
-      },
+      }
     },
     attr: {
-      class: "table table-bordered table-striped",
+      class: "table table-bordered table-striped"
     },
     pager: {
       display: true,
-      perPage: 10,
+      perPage: 10
     },
   };
   stages: any;
@@ -127,7 +127,7 @@ export class InterviewStagesComponent implements OnInit {
       width: "450px",
       data: {
         data: _data,
-        mode: mode,
+        mode: mode
       },
       disableClose: true,
     });

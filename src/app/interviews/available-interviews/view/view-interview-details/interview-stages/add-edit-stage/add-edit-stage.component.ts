@@ -8,7 +8,7 @@ import { CreateEditJobCatComponent } from "src/app/configurations/job-category/c
 @Component({
   selector: "app-add-edit-stage",
   templateUrl: "./add-edit-stage.component.html",
-  styleUrls: ["./add-edit-stage.component.scss"],
+  styleUrls: ["./add-edit-stage.component.scss"]
 })
 export class AddEditStageComponent implements OnInit {
   loading: boolean;
@@ -21,49 +21,63 @@ export class AddEditStageComponent implements OnInit {
     private httpService: HttpService,
     private _fb: FormBuilder,
     private alertService: ToasterAlertService,
-    @Inject(MAT_DIALOG_DATA) private _data: any
+    @Inject(MAT_DIALOG_DATA) public _data: any
   ) {
-    this.form = this._fb.group({
-      description: [
-        this._data.data ? this._data.data.description : null,
-        Validators.required,
-      ],
-      is_stage_last: [
-        this._data.data ? this._data.data.is_last : null,
-        Validators.required,
-      ],
-      exam_id: [
-        this._data.data ? this._data.data.exam_name : null,
-        Validators.required,
-      ],
-      stage_name: [
-        this._data.data ? this._data.data.stage_name : null,
-        Validators.required,
-      ],
-    });
- 
     if (_data.mode) {
       this.title = "Create Interview stage";
+      this.form = this._fb.group({
+        description: [
+          null, Validators.required
+        ],
+        is_stage_last: [
+          null,
+          Validators.required
+        ],
+        exam_id: [
+          null,
+          Validators.required
+        ],
+        stage_name: [
+          null,
+          Validators.required
+        ]
+      });
     } else {
       this.title = "Edit Interview stage "; //+ this._data.data.stage_name
+      this.form = this._fb.group({
+        description: [
+          this._data.data.description,
+          Validators.required
+        ],
+        is_stage_last: [
+          this._data.data.is_last,
+          Validators.required
+        ],
+        exam_id: [
+          this._data.data.exam_name,
+          Validators.required
+        ],
+        stage_name: [
+          this._data.data.stage_name,
+          Validators.required
+        ]
+      });
     }
-  
-   
   }
   ngOnInit() {
-    this.interview_id =JSON.parse(sessionStorage.getItem('interview_more')).interview_id
-   this.loadExams()
+    this.interview_id = JSON.parse(sessionStorage.getItem('interview_more')).interview_id
+    this.loadExams()
   }
   loadExams() {
     // exam/list
     this.httpService
-    .get(`exam/list`)
-    .subscribe(
-      (res) => {
-       this.exams = res['data']
-      },
-      (error) => error
-    );
+      .get(`exam/list`)
+      .subscribe(
+        (res) => {
+          this.exams = res['data']
+        },
+        (error) => error
+      );
   }
   onSubmit(formData: any) {
     if (!this._data.mode) {
@@ -73,7 +87,7 @@ export class AddEditStageComponent implements OnInit {
         description: this.form.value.description,
         is_last: this.form.value.is_stage_last,
         exam_id: this.form.value.exam_id,
-        stage_name: this.form.value.stage_name,
+        stage_name: this.form.value.stage_name
       };
 
       this.loading = true;
@@ -97,7 +111,7 @@ export class AddEditStageComponent implements OnInit {
       description: this.form.value.description,
       is_last: this.form.value.is_stage_last,
       exam_id: this.form.value.exam_id,
-      stage_name: this.form.value.stage_name,
+      stage_name: this.form.value.stage_name
     };
 
     this.loading = true;

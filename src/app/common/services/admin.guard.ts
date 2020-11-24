@@ -10,6 +10,7 @@ export class AdminGuard implements CanActivate, CanActivateChild {
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        route;
         const url: string = state.url;
         return this.checkUser(url);
     }

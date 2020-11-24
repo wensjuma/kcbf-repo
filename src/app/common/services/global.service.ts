@@ -7,7 +7,7 @@ import { DatePipe } from "@angular/common";
 import { DeviceDetectorService } from "ngx-device-detector";
 
 @Injectable({
-  providedIn: "root",
+  providedIn: "root"
 })
 export class GlobalService {
   public apiHost: string;

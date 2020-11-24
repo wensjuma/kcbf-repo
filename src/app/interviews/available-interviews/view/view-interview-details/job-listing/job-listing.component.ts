@@ -16,9 +16,6 @@ export class JobListingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.jobs = jobs
-    // this.loadJobListing()
-
   }
   loadJobListing(){
     this.httpService.get(`job/listing/${this.interview_id}`).subscribe(res=>{
@@ -29,21 +26,5 @@ export class JobListingComponent implements OnInit {
   }
 
 }
-export const jobs={
-  "role": "manager",
-  "category": null,
-  "published": false,
-  "description": "DDD",
-  "qualifications": "Job requires ABCD",
-  "listing_id": null,
-  "application_end_date": "2020-10-25T14:30:00",
-  "published_on": null,
-  "min_salary": 200,
-  "max_salary": 500,
-  "category_id": 144,
-  "job_field": "Accountant",
-  "work_location": "Nairobi",
-  "job_type": "FULL_TIME",
-  "job_title": "Test"
-}
+
 

@@ -42,7 +42,9 @@ export class ListIntervieweeComponent implements OnInit {
         type: 'text',
         filter: false,
         width: "60px",
-        valuePrepareFunction: (value,row,cell) => {
+        valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
          }
       },   

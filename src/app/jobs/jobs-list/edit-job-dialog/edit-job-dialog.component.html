@@ -1,0 +1,184 @@
+<div class="container">
+    <h5><b>{{title}} </b></h5>
+    <form [formGroup]="jobForm">
+        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <input type="text" placeholder="Job title" class="form-control" formControlName="job_title"
+                        required>
+                    <small class="text-danger" *ngIf="jobForm.get('job_title').touched &&
+                        jobForm.get('job_title').hasError('required')">Field
+                        is
+                        required</small>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Job Field" class="form-control" formControlName="job_field"
+                        required>
+                    <small class="text-danger" *ngIf="jobForm.get('job_field').touched &&
+                        jobForm.get('job_field').hasError('required')">Field
+                        is
+                        required</small>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="">Application end date</label> -->
+                    <!-- <div class="input-group mto-date application_end_date ">
+                        <input class="form-control" id="date" formControlName="application_end_date"
+                            ngbDatepicker #sd="ngbDatepicker">
+                        <div class="input-group-append" (click)="sd.toggle()">
+                            <span class="input-group-text start"><i class="fa
+                                    fa-calendar"></i></span>
+                        </div>
+                        <small class="text-danger" *ngIf="jobForm.get('application_end_date').touched &&
+                            jobForm.get('application_end_date').hasError('required')">Field
+                            is
+                            required</small>
+                    </div> -->
+                    <mat-form-field>
+                        <mat-label>set application end date</mat-label>
+                        <input [min]="minDate" [max]="maxDate" formControlName="application_end_date" matInput
+                            [matDatepicker]="dp3">
+                        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <select type="text" placeholder="Job type" class="form-control" formControlName="job_type"
+                        required>
+                        <option [ngValue]="null">--Select
+                            job type--</option>
+                        <option value="FULL_TIME">Full time</option>
+                        <option value="PART_TIME">Part time</option>
+                        <option value="Contract">Contract</option>
+                        <option value="others">Others</option>
+                    </select>
+                    <small class="text-danger" *ngIf="jobForm.get('job_type').touched &&
+                        jobForm.get('job_type').hasError('required')">Field
+                        is
+                        required</small>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Job location" class="form-control"
+                        formControlName="work_location" required>
+                    <small class="text-danger" *ngIf="jobForm.get('work_location').touched &&
+                        jobForm.get('work_location').hasError('required')">Field
+                        is
+                        required</small>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Role" class="form-control" formControlName="role" required>
+                    <small class="text-danger" *ngIf="jobForm.get('role').touched &&
+                        jobForm.get('role').hasError('required')">Field
+                        is
+                        required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <select type="text" placeholder="Job Categoty" class="form-control"
+                        formControlName="category_id" required>
+                        <option [ngValue]="null">--Select job category--</option>
+                        <option *ngFor="let cat of category" [value]="cat.category_id">{{cat.category_name}}
+                        </option>
+                    </select>
+                    <small class="text-danger" *ngIf="jobForm.get('category_id').touched &&
+                        jobForm.get('category_id').hasError('required')">Field
+                        is
+                        required</small>
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Mininum salary" class="form-control"
+                        formControlName="min_salary" required>
+                    <small class="text-danger" *ngIf="jobForm.get('min_salary').touched &&
+                        jobForm.get('min_salary').hasError('required')">Field
+                        is
+                        required</small>
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Maximum salary" class="form-control"
+                        formControlName="max_salary" required>
+                    <small class="text-danger" *ngIf="jobForm.get('max_salary').touched &&
+                        jobForm.get('max_salary').hasError('required')">Field
+                        is
+                        required</small>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="">Job qualifications</label>
+                    <textarea type="text" placeholder="Job qualifications" class="form-control"
+                        formControlName="qualifications" required></textarea>
+                    <small class="text-danger" *ngIf="jobForm.get('qualifications').touched &&
+                jobForm.get('qualifications').hasError('required')">Field
+                        is
+                        required</small>
+                </div>
+                <label for="">Job description</label>
+                <div class="form-group">
+                    <textarea placeholder="Describe job" class="form-control" formControlName="description">
+                    </textarea>
+                </div>
+            </div>
+            <div class="col-3">
+                <label for=""><b>Select details required</b></label>
+                <mat-checkbox color="primary" [ngModelOptions]="{standalone: true}" class="example-margin"
+                    [(ngModel)]="request_education_details">Education</mat-checkbox> <br>
+                <mat-checkbox color="primary" [ngModelOptions]="{standalone: true}" class="example-margin"
+                    [(ngModel)]="request_cv">CV</mat-checkbox>
+                <mat-checkbox color="primary" [ngModelOptions]="{standalone: true}" class="example-margin"
+                    [(ngModel)]="request_apprenticeship">Apprenticeship</mat-checkbox>
+                <mat-checkbox color="primary" [ngModelOptions]="{standalone: true}" class="example-margin"
+                    [(ngModel)]="request_scholarship">Scholarship</mat-checkbox>
+
+            </div>
+            <div class="col-md-3">
+                <br>
+                <mat-checkbox color="primary" [ngModelOptions]="{standalone: true}" class="example-margin"
+                    [(ngModel)]="request_guardian_details">Guardian</mat-checkbox>
+                <mat-checkbox color="primary" [ngModelOptions]="{standalone: true}" class="example-margin"
+                    [(ngModel)]="request_business_details">Business</mat-checkbox>
+                <mat-checkbox color="primary" [ngModelOptions]="{standalone: true}" class="example-margin"
+                    [(ngModel)]="request_siblings_details">Siblings</mat-checkbox>
+                <mat-checkbox color="primary" [ngModelOptions]="{standalone: true}" class="example-margin"
+                    [(ngModel)]="request_extra_documents">Extra documents</mat-checkbox>
+                <mat-checkbox color="primary" [ngModelOptions]="{standalone: true}" class="example-margin"
+                    [(ngModel)]="request_residence_details">Residence</mat-checkbox>
+            </div>
+            <div class="col-md-6">
+                <div style="text-align:center">
+                
+                    <p>
+                        <button type="button" mat-raised-button class="btn-default btn-submits btn-block btn-sm"
+                            (click)="fileInput.click()">
+                            <span><i class="fa fa-upload"></i> Add picture</span>
+                            <!-- <input #fileInput type="file" (change)="selectFile($event)" hidden> -->
+                        </button>
+                    </p>
+                </div>
+                <input #fileInput type="file" accept="image/*" (change)="showPreview($event)" hidden />
+
+                <!-- Image Preview -->
+               <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+                 <img width="150px" height="120px" [src]="imageURL">
+                
+               </div>
+               <img *ngIf="imgURL && !imageURL && !_data.mode" height="120px" width="150px" [src]="imgURL">
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4"></div>
+
+        </div>
+        <!-- <button mat-raised-button type="button" (click)="editInterview()" *ngIf="!_data.mode"
+            class="btn-default btn-submits pull-right">Save changes</button> -->
+    </form>
+    <button mat-raised-button (click)="close()" >Close</button>
+    <button mat-raised-button  *ngIf="_data.mode"
+        class="btn-default btn-submits pull-right" (click)="createJob()">Submit</button>
+    <button mat-raised-button  *ngIf="!_data.mode"
+        class="btn-default btn-submits pull-right" (click)="editJob()">Save</button>
+
+</div>

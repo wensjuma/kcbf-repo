@@ -9,7 +9,7 @@ import { SubSink } from "subsink";
 @Component({
   selector: "app-add-interviewee",
   templateUrl: "./add-interviewee.component.html",
-  styleUrls: ["./add-interviewee.component.scss"],
+  styleUrls: ["./add-interviewee.component.scss"]
 })
 export class AddIntervieweeComponent implements OnInit {
   createFormGroup: FormGroup;
@@ -24,13 +24,11 @@ export class AddIntervieweeComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private httpService: HttpService,
-    private router: Router,
-    private activeRoute: ActivatedRoute,
     private dialogRef: MatDialogRef<AddIntervieweeComponent>,
     @Inject(MAT_DIALOG_DATA) private dialog_data: any,
     private toastrService: ToasterAlertService
   ) {
-    this.createFormGroup = _fb.group({
+    this.createFormGroup = this._fb.group({
       first_name: ["", Validators.required],
       last_name: ["", Validators.required],
       middle_name: ["", Validators.required],
@@ -38,7 +36,7 @@ export class AddIntervieweeComponent implements OnInit {
       email_address: ["", Validators.required],
       bio: ["", Validators.required],
       description: ["", Validators.required],
-       profile_image: [null],
+       profile_image: [null]
     });
   }
   selectedOption(user) {
@@ -64,12 +62,7 @@ export class AddIntervieweeComponent implements OnInit {
     }
     reader.readAsDataURL(this.selectedFile)
   }
-  // selectFile(event: any) {
-  //   this.selectFile = event.target.files[0]
-  // }
-  // uploadFile(event) {
-  //   this.file = (event.target as HTMLInputElement).files[0];
-  // }
+
   
   onSubmit(data: any) {
     let blob = new Blob([this.file]);

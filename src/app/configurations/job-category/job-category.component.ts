@@ -28,21 +28,21 @@ export class JobCategoryComponent implements OnInit {
         {
           name: "editrecord",
           title:
-            '<span title="Edit record" class="fa btn btn-sm btn-info fa-edit fa-1x text-light"></span> &nbsp;&nbsp;&nbsp;',
+            '<span title="Edit record" class="fa btn btn-sm btn-info fa-edit fa-1x text-light"></span> &nbsp;&nbsp;&nbsp;'
         },
         {
           name: "removerecord",
           title:
-            '<span title="Delete record" class="fa btn btn-danger btn-sm fa-trash fa-1x text-light"></span>',
+            '<span title="Delete record" class="fa btn btn-danger btn-sm fa-trash fa-1x text-light"></span>'
         }
        
       ],
-      position: "right",
+      position: "right"
     },
     delete: {
       deleteButtonContent:
         '&nbsp;&nbsp;<i class="fa fa-trash-o text-danger"></i>',
-      confirmDelete: true,
+      confirmDelete: true
     },
     noDataMessage: "No data found",
     columns: {
@@ -52,30 +52,29 @@ export class JobCategoryComponent implements OnInit {
         filter: false,
         width: "60px",
         valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
-        },
+        }
       },
       category_name: {
         title: "Category name",
         type: "string",
-        filter: true,
+        filter: true
       },
       
       description: {
         title: "Description",
         type: "string",
-        filter: true,       
-      },
-     
-     
-     
+        filter: true      
+      }  
     },
     attr: {
-      class: "table table-bordered table-striped",
+      class: "table table-bordered table-striped"
     },
     pager: {
       display: true,
-      perPage: 20,
+      perPage: 20
     },
   };
   locations: any;
@@ -92,12 +91,8 @@ export class JobCategoryComponent implements OnInit {
   loadJobCategory() {
     this.httpService.get("job/categories").subscribe((result) => {
       this.category = result["data"];
-      // console.log(this.category);
     });
   }
-
- 
- 
 editRecord(_data: any, mode: string){
  const dialogRef = this.dialog.open(CreateEditJobCatComponent,{
    width:'450px',
@@ -150,7 +145,6 @@ ngOnDestroy(): void {
   this.subs.unsubscribe();
 }
   onCustomAction(event: any){
-     
     switch(event.action){
       case 'editrecord':
         this.editRecord(event.data, event.mode)

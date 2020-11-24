@@ -11,15 +11,6 @@ import { CreatePanelistDialogComponent } from "../create-panelist-dialog/create-
   styleUrls: ["./list-panelists.component.scss"],
 })
 export class ListPanelistsComponent implements OnInit {
-  displayedColumns: string[] = [
-    "position",
-    "name",
-    "weight",
-    "symbol",
-    "email",
-  ];
-  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
   data: User;
   public settings = {
@@ -35,26 +26,23 @@ export class ListPanelistsComponent implements OnInit {
         {
           name: "editDialog",
           title:
-            '<i class="fa fa-pencil-square fa-1x text-info"></i> &nbsp;&nbsp;',
+            '<i class="fa fa-pencil-square fa-1x text-info"></i> &nbsp;&nbsp;'
         },
         {
           name: "viewrecord",
           title:
-            ' &nbsp;<i class="fa fa-danger fa-1x fa-trash text-danger"></i>',
-        },
-        
-        //  { name: 'viewrecord', title: '<i class="fa fa-eye"></i>' }
-        // { name: 'editrecord', title: '&nbsp;&nbsp;<i class="fa  fa-pencil"></i>' }
+            ' &nbsp;<i class="fa fa-danger fa-1x fa-trash text-danger"></i>'
+        }
       ],
-      position: "right",
+      position: "right"
     },
     delete: {
       deleteButtonContent:
         '&nbsp;&nbsp;<i class="fa fa-trash-o text-danger"></i>',
-      confirmDelete: true,
+      confirmDelete: true
     },
     rowClassFunction: (row) => {
-     
+      row;
       const authService = new AuthService(null, null, null)
       if(authService.currentUser.sub === 'm2@gmail.com'){
           return '';
@@ -71,46 +59,46 @@ export class ListPanelistsComponent implements OnInit {
         filter: false,
         width: "60px",
         valuePrepareFunction: (value, row, cell) => {
+          value;
+          row;
           return cell.row.index + 1;
-        },
+        }
       },
       first_name: {
         title: "First Name",
         type: "string",
-        filter: false,
+        filter: false
       },
       last_name: {
         title: "Last Name",
         type: "string",
-        filter: false,
+        filter: false
       },
       email_address: {
         title: "Email",
         type: "string",
-        filter: false,
+        filter: false
       },
       phone_number: {
         title: "Phonenumber",
         type: "string",
-        filter: false,
-      },
+        filter: false
+      }
     },
     attr: {
-      class: "table table-bordered table-striped",
+      class: "table table-bordered table-striped"
     },
     pager: {
       display: true,
-      perPage: 10,
-    },
+      perPage: 10
+    }
   };
-
   ngAfterViewInit() {
     // this.dataSource.paginator = this.paginator;
   }
-  constructor(private dialog: MatDialog, private httpService: HttpService, authService:AuthService) {}
+  constructor(private dialog: MatDialog, private httpService: HttpService) {}
 
   ngOnInit() {
-    // this.data = ELEMENT_DATA
     this.loadPanelists();
   }
   loadPanelists() {
@@ -124,8 +112,8 @@ export class ListPanelistsComponent implements OnInit {
     this.dialog.open(CreatePanelistDialogComponent, {
       data: {
         data: _data,
-        mode: _mode,
-      },
+        mode: _mode
+      }
     });
   }
   onCustomAction(event: any) {

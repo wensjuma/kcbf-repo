@@ -6,7 +6,7 @@ import { HttpService } from "src/app/common/services/http.service";
 @Component({
   selector: "app-results-dialog",
   templateUrl: "./results-dialog.component.html",
-  styleUrls: ["./results-dialog.component.scss"],
+  styleUrls: ["./results-dialog.component.scss"]
 })
 export class ResultsDialogComponent implements OnInit {
   details: any;

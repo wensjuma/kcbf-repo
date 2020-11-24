@@ -35,23 +35,25 @@ import { PreInterviewPageComponent } from './pre-interview-page/pre-interview-pa
 // import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 
 // import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { ResultsDialogComponent } from './results-dialog/results-dialog.component';
+
 @NgModule({
   declarations: [
     IntervieweeComponent,
-   
     ListIntervieweeComponent,
-    
     IntervieweeDialogComponent,
     CreateInterviewComponent,
     InterviewLocationComponent,
-    InterviewDetailsComponent,
+    // InterviewDetailsComponent,
     AddIntervieweeComponent,
     AvailableInterviewsComponent,
     AssignPanelistComponent,
     ViewInterviewDetailsComponent,
     ViewPanelistDialogComponent,
     QuestionsDialogComponent,
-
+    ResultsDialogComponent,
    
     ViewComponent,
     ListPanelistsTabComponent,
@@ -62,7 +64,7 @@ import { PreInterviewPageComponent } from './pre-interview-page/pre-interview-pa
     PanelistAwardsComponent,
     AddEditStageComponent,
     JobListingComponent,
-    StepIntervieweesComponent,
+    StepIntervieweesComponent
     
   ],
   imports: [
@@ -72,6 +74,7 @@ import { PreInterviewPageComponent } from './pre-interview-page/pre-interview-pa
     NgbModule,
     CountdownModule,
     EditorModule,
+    ReactiveFormsModule
 
     // MatDatepickerModule,
     // NgxMatMomentModule
@@ -85,10 +88,8 @@ import { PreInterviewPageComponent } from './pre-interview-page/pre-interview-pa
     ViewPanelistDialogComponent,
     AddIntervieweeComponent,
     QuestionsDialogComponent,
-   
-
+    ResultsDialogComponent,
     PanelistAwardsComponent,
-    InterviewDetailsComponent,
     AddEditStageComponent,
     StepIntervieweesComponent
   ],

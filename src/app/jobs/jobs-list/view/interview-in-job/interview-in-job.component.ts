@@ -1,21 +1,21 @@
-import { DatePipe } from "@angular/common";
-import { Component, OnInit } from "@angular/core";
-import { MatDialog } from "@angular/material";
-import { Router } from "@angular/router";
-import { Interview } from "src/app/common/models/interview.model";
-import { AuthService } from "src/app/common/services/auth.service";
-import { HttpService } from "src/app/common/services/http.service";
-import { SubSink } from "subsink";
-import { InterviewDetailsComponent } from "../create-interview/interview-components/interview-details/interview-details.component";
+import { DatePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Interview } from 'src/app/common/models/interview.model';
+import { AuthService } from 'src/app/common/services/auth.service';
+import { HttpService } from 'src/app/common/services/http.service';
+import { InterviewDetailsComponent } from 'src/app/interviews/create-interview/interview-components/interview-details/interview-details.component';
+import { CreateInterviewInJobComponent } from './create-interview-in-job/create-interview-in-job.component';
 
 @Component({
-  selector: "app-available-interviews",
-  templateUrl: "./available-interviews.component.html",
-  styleUrls: ["./available-interviews.component.css"],
+  selector: 'app-interview-in-job',
+  templateUrl: './interview-in-job.component.html',
+  styleUrls: ['./interview-in-job.component.scss']
 })
-export class AvailableInterviewsComponent implements OnInit {
+export class InterviewInJobComponent implements OnInit {
+
   interviews: Interview[] = [];
-  subs = new SubSink();
   interviewers: any;
   public settings = {
     selectMode: "single", // single|multi
@@ -35,7 +35,7 @@ export class AvailableInterviewsComponent implements OnInit {
         {
           name: "viewrecord",
           title:
-            '&nbsp;<span class="btn btn-sm btn-success">More Action</span>'
+            '&nbsp;<span class="btn btn-sm btn-success">More</span>'
         }
       ],
       position: "right"
@@ -47,27 +47,27 @@ export class AvailableInterviewsComponent implements OnInit {
     },
     noDataMessage: "No data found",
     columns: {
-      index: {
-        title: "sr_no",
-        type: "text",
-        filter: false,
-        width: "60px",
-        valuePrepareFunction: (value, row, cell) => {
-          value = value; row= row
-          return cell.row.index + 1;
-        }
-      },
+      // index: {
+      //   title: "sr_no",
+      //   type: "text",
+      //   filter: false,
+      //   width: "60px",
+      //   valuePrepareFunction: (value, row, cell) => {
+      //     value = value; row= row
+      //     return cell.row.index + 1;
+      //   }
+      // },
       interview_name: {
         title: "Interview",
         type: "string",
         filter: false,
-        width: "150px"
+        width: "140px"
       },
       description: {
         title: "Description",
         type: "string",
         filter: false,
-        width: "170px"
+        width: "140px"
       },
       location_name: {
         title: "Room",
@@ -75,12 +75,12 @@ export class AvailableInterviewsComponent implements OnInit {
         filter: false,
         width: "140px"
       },
-      location_code: {
-        title: "Room code",
-        type: "string",
-        filter: false,
-        width: "110px"
-      },
+      // location_code: {
+      //   title: "Room code",
+      //   type: "string",
+      //   filter: false,
+      //   width: "110px"
+      // },
       start_date: {
         title: "Date|Time",
         type: "string",
@@ -105,23 +105,27 @@ export class AvailableInterviewsComponent implements OnInit {
     }
   };
   get_interview: any;
+  jobId: any;
   constructor(
     private httpService: HttpService,
     private router: Router,
     private dialog: MatDialog,
     private authService: AuthService,
-    private datePipe: DatePipe
-  ) {}
+    private datePipe: DatePipe,
+    private activeRoute: ActivatedRoute
+  ) {
+    this.jobId = this.activeRoute.snapshot.paramMap.get("id");
+  }
 
   ngOnInit() {
     // if (this.authService.currentUser.sub === "m2@gmail.com") {
       this.loadInterviews();
   }
   loadInterviews() {
-    this.httpService.get("interview?page=0&size=50").subscribe((result) => {
+  
+    this.httpService.get(`job/listing/${this.jobId}/interviews?page=0&size=50`)
+      .subscribe((result) => {
       this.interviews = result["data"]; //? result["data"].reverse():'';
-      console.log(this.interviews);
-      
     });
   }
   // loadPanelistInterviews() {
@@ -133,7 +137,7 @@ export class AvailableInterviewsComponent implements OnInit {
   //   });
   // }
   ngOnDestroy(): void {
-    this.subs.unsubscribe();
+    
   }
   getInterviewById() {
    
@@ -147,13 +151,13 @@ export class AvailableInterviewsComponent implements OnInit {
     this.router.navigate(["main/interviews/interview", data.interview_id]);
   }
   createInterview(data: any, mode: string) {
-    const dialogRef = this.dialog.open(InterviewDetailsComponent, {
+    const dialogRef = this.dialog.open(CreateInterviewInJobComponent, {
       data: {
         data: data,
-        job: this.get_interview,
+        job: this.jobId,
         mode: mode
       },
-      width: "800px"
+      width: "600px"
     });
     dialogRef.afterClosed().subscribe((res) => {
       this.loadInterviews();
@@ -171,4 +175,5 @@ export class AvailableInterviewsComponent implements OnInit {
         break;
     }
   }
+
 }

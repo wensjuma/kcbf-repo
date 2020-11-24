@@ -20,9 +20,7 @@ export class ListApplicantsComponent implements OnInit {
       edit: false,
       delete: false,
       custom: [
-        // { name: 'unpublish', title: '<i title="Unpublish this job" class="fa btn btn-warning btn-sm fa-1x fa-ban text-light"></i>' },
         { name: 'viewRecord', title: ' &nbsp;<i  title="view this job" class="fa btn-success btn-sm fa-danger fa-1x fa-eye text-light"></i>' }
-        // { name: 'editrecord', title: '&nbsp;&nbsp;<i class="fa  fa-pencil"></i>' }
       ],
       position: 'right'
     },
@@ -37,36 +35,38 @@ export class ListApplicantsComponent implements OnInit {
         type: 'text',
         filter: false,
         width: "30px",
-        valuePrepareFunction: (value,row,cell) => {
+        valuePrepareFunction: (value, row, cell) => {
+          value; 
+          row;
           return cell.row.index + 1;
          }
       },   
       first_name: {
         title: 'Firstname',
         type: 'string',
-        filter: false,
+        filter: false
       },
       surname: {
         title: 'Surname',
         type: 'string',
         filter: false, 
-        width: "100px",
+        width: "100px"
       },
       applicant_residence: {
         title: 'Residence',
         type: 'string',
         filter: false, 
-        width: "100px",    
+        width: "100px"    
       },
       email_address: {
         title: 'Email',
         type: 'string',
-        filter: false,   
+        filter: false  
       },
       phone_number: {
         title: 'Phone',
         type: 'string',
-        filter: false,
+        filter: false
       },
       applied_on: {
         title: 'Date applied',
@@ -76,10 +76,8 @@ export class ListApplicantsComponent implements OnInit {
           const raw = new Date(date);
           const formatted = this.datePipe.transform(raw, 'dd MMM yyyy');
           return formatted;
-        }, 
-      },
-     
-     
+        }
+      }
     },
     attr:{
      class: 'table table-bordered table-striped'
@@ -93,7 +91,6 @@ export class ListApplicantsComponent implements OnInit {
   subs =new SubSink()
   job_id: any;
   job_details: any;
-
   constructor(
     private httpService: HttpService,
     private datePipe: DatePipe,
@@ -101,7 +98,6 @@ export class ListApplicantsComponent implements OnInit {
     private router: Router
   ){
     this.job_id = this.activeRoute.snapshot.paramMap.get("id");
-    // this.job_details = JSON.parse(sessionStorage.getItem("job_details"));
     this.job_details = JSON.parse(sessionStorage.getItem("jobdetails"));  
   }
   ngOnInit() {
@@ -114,7 +110,7 @@ export class ListApplicantsComponent implements OnInit {
      })
   }
   viewApplicant(data: any, event) {    
-    console.log(data);
+    event;
     sessionStorage.setItem('applicant_info', JSON.stringify(data))
     this.router.navigate([`/main/jobs/new/${this.job_details.listing_id}/applicant/`, data.application_id])
   }
@@ -127,5 +123,4 @@ export class ListApplicantsComponent implements OnInit {
         break;
     }
   }
-
 }

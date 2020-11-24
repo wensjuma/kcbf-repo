@@ -16,11 +16,11 @@ const routes: Routes = [
 
   {
     path: "interviewee",
-    component: IntervieweeComponent,
+    component: IntervieweeComponent
   },
   {
     path: "preview",
-    component: PreviewResponsesComponent,
+    component: PreviewResponsesComponent
   },
   // {
   //   path: "questionnaire",
@@ -28,20 +28,20 @@ const routes: Routes = [
   // },
   {
     path: "interviewees",
-    component: ListIntervieweeComponent,
+    component: ListIntervieweeComponent
   },
   {
     path: "list/interviews",
-    component: AvailableInterviewsComponent,
+    component: AvailableInterviewsComponent
   },
   {
     path: "interview/:id",
-    component: ViewComponent,
+    component: ViewComponent
 
   },
   {
     path: "pre",
-    component: PreInterviewPageComponent,
+    component: PreInterviewPageComponent
   },
   
   {
@@ -51,15 +51,15 @@ const routes: Routes = [
       
       {
         path: "location",
-        component: InterviewLocationComponent,
+        component: InterviewLocationComponent
       },
        {
         path: "interview-details",
-        component: InterviewDetailsComponent,
-      }, 
+        component: InterviewDetailsComponent
+      }
      
     ]
-  },
+  }
 ];
 
 @NgModule({

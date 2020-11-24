@@ -29,21 +29,21 @@ export class LocationsComponent implements OnInit {
         {
           name: "editrecord",
           title:
-            '<span title="Edit record" class="fa fa-edit fa-2x text-info"></span> &nbsp;&nbsp;&nbsp;',
+            '<span title="Edit record" class="fa fa-edit fa-2x text-info"></span> &nbsp;&nbsp;&nbsp;'
         },
         {
           name: "removerecord",
           title:
-            '<span title="Delete record" class="fa fa-trash fa-2x text-danger"></span>',
+            '<span title="Delete record" class="fa fa-trash fa-2x text-danger"></span>'
         }
        
       ],
-      position: "right",
+      position: "right"
     },
     delete: {
       deleteButtonContent:
         '&nbsp;&nbsp;<i class="fa fa-trash-o text-danger"></i>',
-      confirmDelete: true,
+      confirmDelete: true
     },
     noDataMessage: "No data found",
     columns: {
@@ -55,25 +55,25 @@ export class LocationsComponent implements OnInit {
       location_code: {
         title: "Room code",
         type: "string",
-        filter: false,
+        filter: false
       },
       location_name: {
         title: "Room",
         type: "string",
-        filter: false,
+        filter: false
       },
       description: {
         title: "Description",
         type: "string",
-        filter: false,       
+        filter: false       
       }, 
     },
     attr: {
-      class: "table table-bordered table-striped",
+      class: "table table-bordered table-striped"
     },
     pager: {
       display: true,
-      perPage:20,
+      perPage:20
     },
   };
   locations: any;
@@ -93,11 +93,8 @@ export class LocationsComponent implements OnInit {
       console.log(this.locations);
     });
   }
-  loadInterviewers(myinterview) {
-  }
-editRecord(_data: any, mode: string){
-  console.log(_data);
-  
+
+editRecord(_data: any, mode: string){  
  const dialogRef = this.dialog.open(LocationDialogComponent,{
    width:'450px',
    data:{
@@ -109,12 +106,9 @@ editRecord(_data: any, mode: string){
   dialogRef.afterClosed().subscribe(res => {
     this.loadInterviewRooms()
   })
- 
 }
   remove(data: any) {
-  
     Swal.fire({
-      // title: 'Are you sure want to delete?',
       text: 'Are you sure want to delete?',
       icon: 'warning',
       showCancelButton: true,
